@@ -755,7 +755,8 @@
    "comments": 1,
    "rr": 5.5,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Thu"
+   "weekday": "Thu",
+   "account": "studio"
   },
   {
    "date": "2026-10-20",
@@ -767,7 +768,8 @@
    "comments": 95,
    "rr": 30.4,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Tue"
+   "weekday": "Tue",
+   "account": "studio"
   },
   {
    "date": "2026-10-19",
@@ -779,7 +781,8 @@
    "comments": 10,
    "rr": 17.6,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Mon"
+   "weekday": "Mon",
+   "account": "studio"
   },
   {
    "date": "2026-10-16",
@@ -791,7 +794,8 @@
    "comments": 11,
    "rr": 9.0,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Fri"
+   "weekday": "Fri",
+   "account": "studio"
   },
   {
    "date": "2026-10-14",
@@ -803,7 +807,8 @@
    "comments": 0,
    "rr": 6.9,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Wed"
+   "weekday": "Wed",
+   "account": "studio"
   },
   {
    "date": "2026-10-14",
@@ -815,7 +820,8 @@
    "comments": 3,
    "rr": 7.2,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Wed"
+   "weekday": "Wed",
+   "account": "studio"
   },
   {
    "date": "2026-10-13",
@@ -827,7 +833,8 @@
    "comments": 3,
    "rr": 10.9,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Tue"
+   "weekday": "Tue",
+   "account": "studio"
   },
   {
    "date": "2026-09-29",
@@ -839,7 +846,8 @@
    "comments": 4,
    "rr": 13.5,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Tue"
+   "weekday": "Tue",
+   "account": "studio"
   },
   {
    "date": "2026-09-28",
@@ -851,7 +859,8 @@
    "comments": 0,
    "rr": 9.7,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Mon"
+   "weekday": "Mon",
+   "account": "studio"
   },
   {
    "date": "2026-09-28",
@@ -863,7 +872,8 @@
    "comments": 3,
    "rr": 7.3,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Mon"
+   "weekday": "Mon",
+   "account": "studio"
   },
   {
    "date": "2026-09-27",
@@ -875,7 +885,8 @@
    "comments": 0,
    "rr": 7.4,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Sun"
+   "weekday": "Sun",
+   "account": "studio"
   },
   {
    "date": "2026-09-24",
@@ -887,7 +898,8 @@
    "comments": 2,
    "rr": 2.8,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Thu"
+   "weekday": "Thu",
+   "account": "studio"
   },
   {
    "date": "2026-09-24",
@@ -899,7 +911,8 @@
    "comments": 0,
    "rr": 6.7,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Thu"
+   "weekday": "Thu",
+   "account": "studio"
   },
   {
    "date": "2026-09-23",
@@ -911,7 +924,8 @@
    "comments": 0,
    "rr": 5.0,
    "source": "Walkity Talk Instagram reports",
-   "weekday": "Wed"
+   "weekday": "Wed",
+   "account": "studio"
   }
  ],
  "geo_funnel": [
@@ -1121,5 +1135,22 @@
   "interactions_b": 150,
   "views_b": 5924,
   "carousels": "21 campaign carousels Oct 20–29, 0–6 likes and 0 comments each"
- }
+ },
+ "accounts": [
+  {
+   "id": "studio",
+   "name": "Walkity Talk Studio",
+   "handle": "@thatwalkitytalkstudio",
+   "role": "Studio / talk-show reels",
+   "sample": false
+  },
+  {
+   "id": "instagram",
+   "name": "Walkity Talk Instagram",
+   "handle": "@walkitytalk",
+   "role": "Brand and store feed (campaign carousels, product posts)",
+   "sample": false,
+   "per_post": "none yet"
+  }
+ ]
 }
