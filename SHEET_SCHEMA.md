@@ -1,0 +1,17 @@
+# Walkity Talk dashboard: Google Sheet schema
+
+Set `SHEET` in index.html to the Sheet ID. Share it as "Anyone with the link can view". Each tab is read through the gviz CSV endpoint. The header row must match these names exactly (case-insensitive).
+
+| Tab | Columns | Feeds | Likely source |
+|---|---|---|---|
+| `Traffic` | Date (YYYY-MM-DD), Visits, Unique Visitors | (a) Page traffic | Wix Analytics export (Traffic overview, filtered to /walkitytalk), or GA4 property G-9JQVXR6NCX |
+| `Sources` | Source (Instagram, TikTok, YouTube, X, Direct, Search, Email, Referral), UTM Campaign, Sessions | (b) Traffic sources | Wix Analytics "Traffic by source" + UTM report, GA4 Acquisition |
+| `Content` | Date, Platform, Post, URL, Views, Saves, Shares, Comments | (c) Content performance (RR v2 is computed by the page) | Instagram export / Insights (@thatwalkytalkstudio), TikTok, YouTube Studio, X analytics |
+| `Sales` | Date, Orders, Revenue, Sessions | (d) Sales KPIs (conv. rate = Orders ÷ Sessions) | Wix Stores / shop platform orders export |
+| `Products` | Product, Units, Revenue | (d) Top products | Wix Stores sales by product |
+| `Funnel` | Stage (Resonance, Sustain, Harmonic, Crescendo, Resolution), Count, Metric | (e) Funnel strip | Stage win conditions from the Studio 145 funnel SOP |
+
+Resonance Rate v2 = (Saves + Shares + Comments) ÷ Views × 1000.
+Bands: Push only (Dim) under 5 · Solid (Steady) 5–15 · Strong (Bright) 15–30 · Outlier 30+.
+
+While `SHEET` is the placeholder (or a tab is missing), the page shows clearly labeled EXAMPLE data.
