@@ -1,5 +1,5 @@
 {
- "note": "Embedded static data. Wix Analytics /walkitytalk through 2026-10-31; Cloudy reports Sep 23-Oct 22.",
+ "note": "Wix Analytics for studio145.ca/walkitytalk, Aug 3 – Oct 31, 2026 (Toronto time). Reel scores from Walkity Talk Instagram reports, Sep 23 – Oct 22.",
  "traffic": [
   {
    "date": "2026-08-03",
@@ -754,7 +754,8 @@
    "shares": 2,
    "comments": 1,
    "rr": 5.5,
-   "source": "Cloudy report, Oct 23 ed."
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Thu"
   },
   {
    "date": "2026-10-20",
@@ -765,7 +766,8 @@
    "shares": 89,
    "comments": 95,
    "rr": 30.4,
-   "source": "Cloudy report, Oct 23 ed."
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Tue"
   },
   {
    "date": "2026-10-19",
@@ -776,7 +778,8 @@
    "shares": 31,
    "comments": 10,
    "rr": 17.6,
-   "source": "Cloudy report, Oct 23 ed."
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Mon"
   },
   {
    "date": "2026-10-16",
@@ -787,7 +790,8 @@
    "shares": 6,
    "comments": 11,
    "rr": 9.0,
-   "source": "Cloudy report, Oct 23 ed."
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Fri"
   },
   {
    "date": "2026-10-14",
@@ -798,7 +802,8 @@
    "shares": 7,
    "comments": 0,
    "rr": 6.9,
-   "source": "Cloudy report, Oct 23 ed."
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Wed"
   },
   {
    "date": "2026-10-14",
@@ -809,7 +814,8 @@
    "shares": 16,
    "comments": 3,
    "rr": 7.2,
-   "source": "Cloudy report, Oct 23 ed."
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Wed"
   },
   {
    "date": "2026-10-13",
@@ -820,7 +826,8 @@
    "shares": 23,
    "comments": 3,
    "rr": 10.9,
-   "source": "Cloudy report, Oct 23 ed."
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Tue"
   },
   {
    "date": "2026-09-29",
@@ -831,7 +838,8 @@
    "shares": 2,
    "comments": 4,
    "rr": 13.5,
-   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Tue"
   },
   {
    "date": "2026-09-28",
@@ -842,7 +850,8 @@
    "shares": 10,
    "comments": 0,
    "rr": 9.7,
-   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Mon"
   },
   {
    "date": "2026-09-28",
@@ -853,7 +862,8 @@
    "shares": 4,
    "comments": 3,
    "rr": 7.3,
-   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Mon"
   },
   {
    "date": "2026-09-27",
@@ -864,7 +874,8 @@
    "shares": 3,
    "comments": 0,
    "rr": 7.4,
-   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Sun"
   },
   {
    "date": "2026-09-24",
@@ -875,7 +886,8 @@
    "shares": 0,
    "comments": 2,
    "rr": 2.8,
-   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Thu"
   },
   {
    "date": "2026-09-24",
@@ -886,7 +898,8 @@
    "shares": 4,
    "comments": 0,
    "rr": 6.7,
-   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Thu"
   },
   {
    "date": "2026-09-23",
@@ -897,7 +910,216 @@
    "shares": 4,
    "comments": 0,
    "rr": 5.0,
-   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+   "source": "Walkity Talk Instagram reports",
+   "weekday": "Wed"
   }
- ]
+ ],
+ "geo_funnel": [
+  {
+   "segment": "Canada",
+   "sub": false,
+   "sessions": 94,
+   "awareness": 55,
+   "consideration": 29,
+   "returning": 19,
+   "engaged": 14,
+   "onward": 8,
+   "bio": 49,
+   "mobile": 80
+  },
+  {
+   "segment": "GTA (Toronto area)",
+   "sub": true,
+   "sessions": 75,
+   "awareness": 43,
+   "consideration": 26,
+   "returning": 19,
+   "engaged": 11,
+   "onward": 6,
+   "bio": 40,
+   "mobile": 64
+  },
+  {
+   "segment": "Rest of Canada",
+   "sub": true,
+   "sessions": 19,
+   "awareness": 12,
+   "consideration": 3,
+   "returning": 0,
+   "engaged": 3,
+   "onward": 2,
+   "bio": 9,
+   "mobile": 16
+  },
+  {
+   "segment": "United States",
+   "sub": false,
+   "sessions": 5,
+   "awareness": 4,
+   "consideration": 0,
+   "returning": 0,
+   "engaged": 0,
+   "onward": 0,
+   "bio": 4,
+   "mobile": 5
+  },
+  {
+   "segment": "Jamaica",
+   "sub": false,
+   "sessions": 2,
+   "awareness": 2,
+   "consideration": 0,
+   "returning": 0,
+   "engaged": 0,
+   "onward": 0,
+   "bio": 0,
+   "mobile": 2
+  },
+  {
+   "segment": "Rest of world",
+   "sub": false,
+   "sessions": 10,
+   "awareness": 5,
+   "consideration": 1,
+   "returning": 0,
+   "engaged": 1,
+   "onward": 0,
+   "bio": 4,
+   "mobile": 5
+  },
+  {
+   "segment": "All",
+   "sub": false,
+   "sessions": 111,
+   "awareness": 66,
+   "consideration": 30,
+   "returning": 19,
+   "engaged": 15,
+   "onward": 8,
+   "bio": 57,
+   "mobile": 92
+  }
+ ],
+ "ca_weekly": [
+  {
+   "week": "2026-08-10",
+   "sessions": 1,
+   "consideration": 0,
+   "awareness": 0
+  },
+  {
+   "week": "2026-09-21",
+   "sessions": 2,
+   "consideration": 1,
+   "awareness": 0
+  },
+  {
+   "week": "2026-09-28",
+   "sessions": 15,
+   "consideration": 7,
+   "awareness": 5
+  },
+  {
+   "week": "2026-10-05",
+   "sessions": 28,
+   "consideration": 11,
+   "awareness": 16
+  },
+  {
+   "week": "2026-10-12",
+   "sessions": 23,
+   "consideration": 2,
+   "awareness": 23
+  },
+  {
+   "week": "2026-10-19",
+   "sessions": 5,
+   "consideration": 0,
+   "awareness": 5
+  },
+  {
+   "week": "2026-10-26",
+   "sessions": 20,
+   "consideration": 8,
+   "awareness": 6
+  }
+ ],
+ "dow": {
+  "Mon": 17,
+  "Wed": 22,
+  "Tue": 28,
+  "Fri": 17,
+  "Sun": 3,
+  "Sat": 7,
+  "Thu": 17
+ },
+ "dwell": {
+  "n": 8,
+  "values_s": [
+   9,
+   9,
+   11,
+   15,
+   22,
+   51,
+   155,
+   486
+  ]
+ },
+ "oct30": {
+  "sessions": 13,
+  "sources": {
+   "Instagram": 1,
+   "direct": 11,
+   "Linktree": 1
+  },
+  "returning": 5
+ },
+ "bio_by_country": {
+  "Canada": 49,
+  "Netherlands": 1,
+  "Spain": 1,
+  "Zambia": 1,
+  "United States": 4,
+  "United Kingdom": 1
+ },
+ "headline": {
+  "7d": {
+   "window": "7d",
+   "start_et": "2026-10-25",
+   "end_et": "2026-10-31",
+   "scope": "/walkitytalk",
+   "sessions": 24,
+   "page_views": 24,
+   "unique_visitors": 17
+  },
+  "30d": {
+   "window": "30d",
+   "start_et": "2026-10-02",
+   "end_et": "2026-10-31",
+   "scope": "/walkitytalk",
+   "sessions": 90,
+   "page_views": 91,
+   "unique_visitors": 72
+  },
+  "90d": {
+   "window": "90d",
+   "start_et": "2026-08-03",
+   "end_et": "2026-10-31",
+   "scope": "/walkitytalk",
+   "sessions": 111,
+   "page_views": 113,
+   "unique_visitors": 85
+  }
+ },
+ "store_ig": {
+  "window_a": "Oct 16–23",
+  "reached_a": 1709,
+  "interactions_a": 481,
+  "window_b": "Oct 24–30",
+  "reached_b": 1212,
+  "interactions_b": 150,
+  "views_b": 5924,
+  "carousels": "21 campaign carousels Oct 20–29, 0–6 likes and 0 comments each"
+ }
 }

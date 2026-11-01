@@ -1,92 +1,119 @@
 <!doctype html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Walkity Talk | Tracking Dashboard</title>
-<link rel="icon" href="assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@500;700&family=Inter:wght@400;600;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
-<!--
-SHEET SCHEMA (full doc: SHEET_SCHEMA.md). One tab per section, header row first:
-  Traffic  : Date | Visits | Unique Visitors
-  Sources  : Source | UTM Campaign | Sessions
-  Content  : Date | Platform | Post | URL | Views | Saves | Shares | Comments
-  Sales    : Date | Orders | Revenue | Sessions
-  Products : Product | Units | Revenue
-  Funnel   : Stage | Count | Metric
-RR v2 = (Saves+Shares+Comments)/Views*1000 · Push only (Dim) <5 · Solid (Steady) 5-15 · Strong (Bright) 15-30 · Outlier 30+
--->
+<link rel="icon" href="assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png"><link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Questrial&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#233D4D;--ink:#172933;--paper:#F0F6F6;--sky:#A4C3D6;--steel:#4C85A8;--sun:#FDD56B;--gold:#FCCA46;--grey:#787B7B;
---bg:var(--paper);--card:#fff;--tx:var(--ink);--mut:#5b6b73;--line:#d6e2e6}
-[data-theme=dark]{--bg:#0C141A;--card:#172933;--tx:#F0F6F6;--mut:#A4C3D6;--line:#2b4554}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 Inter,sans-serif}
-.banner{background:var(--sun);color:var(--ink);text-align:center;font:600 14px 'IBM Plex Mono',monospace;padding:8px}
-header{background:var(--navy);color:var(--paper);padding:28px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-h1{font:700 34px DynaPuff,cursive;margin:0;text-transform:lowercase}h1 small{display:block;font:400 13px 'IBM Plex Mono',monospace;color:var(--sky);text-transform:none}
-h2{font:700 22px DynaPuff,cursive;margin:0 0 4px;text-transform:lowercase}
-button{font:600 13px 'IBM Plex Mono',monospace;background:var(--sun);color:var(--ink);border:0;border-radius:999px;padding:8px 16px;cursor:pointer}
+/* Brand palette (Walkity Talk Brand Guidelines): crimson #B01E23, black #000000, white #FFFFFF */
+:root{--red:#B01E23;--blk:#000000;--wht:#FFFFFF;
+--bg:#FFFFFF;--card:#FFFFFF;--tx:#000000;--mut:#4a4a4a;--line:#e2e2e2;--acc:#B01E23;--soft:#f6e9e9}
+[data-theme=dark]{--bg:#000000;--card:#111111;--tx:#FFFFFF;--mut:#bdbdbd;--line:#2c2c2c;--acc:#E0484D;--soft:#2a0d0e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 Questrial,'Helvetica Neue',Arial,sans-serif}
+header{background:var(--blk);color:var(--wht);padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:6px solid var(--red)}
+.brand{display:flex;align-items:center;gap:16px}.brand img{height:54px}
+h1,h2,h3{font-family:Staatliches,Impact,'Arial Narrow',sans-serif;font-weight:400;letter-spacing:.03em;margin:0}
+h1{font-size:36px}h1 small{display:block;font:14px Questrial,sans-serif;letter-spacing:0;color:#d9d9d9}
+h2{font-size:26px;margin-bottom:2px}h3{font-size:19px}
+button{font:15px Staatliches,sans-serif;letter-spacing:.05em;background:var(--red);color:var(--wht);border:0;border-radius:4px;padding:8px 16px;cursor:pointer}
 main{max-width:1150px;margin:auto;padding:24px;display:grid;gap:20px}
-section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
-.sub{color:var(--mut);font:12px 'IBM Plex Mono',monospace;margin-bottom:12px}
-.ex{display:inline-block;background:var(--sun);color:var(--ink);font:600 11px 'IBM Plex Mono',monospace;border-radius:6px;padding:1px 7px;margin-left:8px;vertical-align:middle}
+section{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:6px;padding:20px}
+.sub{color:var(--mut);font-size:13px;margin-bottom:12px}
+.tag{display:inline-block;font:12px Staatliches,sans-serif;letter-spacing:.06em;border-radius:3px;padding:1px 7px;margin-left:6px;vertical-align:middle;background:var(--tx);color:var(--bg)}
+.tag.r{background:var(--red);color:#fff}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:12px}
-.kpi{border:1px solid var(--line);border-radius:14px;padding:12px}.kpi b{display:block;font:800 26px Inter}.kpi span{color:var(--mut);font-size:12px}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px;border-bottom:1px solid var(--line);text-align:left}th{font:600 12px 'IBM Plex Mono',monospace;color:var(--mut)}
-td.n{text-align:right;font-family:'IBM Plex Mono',monospace}
-.bar{height:10px;border-radius:5px;background:var(--steel)}
-.band{border-radius:999px;padding:2px 9px;font:600 11px 'IBM Plex Mono',monospace}
-.b0{background:#e3e7e8;color:#555}.b1{background:var(--sky);color:var(--ink)}.b2{background:var(--steel);color:#fff}.b3{background:var(--gold);color:var(--ink)}
+.kpi{border:1px solid var(--line);border-radius:6px;padding:12px}.kpi b{display:block;font:34px Staatliches,sans-serif;color:var(--acc)}.kpi span{color:var(--mut);font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font:14px Staatliches,sans-serif;letter-spacing:.05em;color:var(--mut)}
+td.n{text-align:right;font-variant-numeric:tabular-nums}tr.sub td:first-child{padding-left:24px;color:var(--mut)}
+.bar{height:10px;border-radius:2px;background:var(--acc)}
+.band{border-radius:3px;padding:2px 8px;font:12px Staatliches,sans-serif;letter-spacing:.05em}
+.b0{background:#e6e6e6;color:#000}.b1{background:#f1d2d3;color:#000}.b2{background:#B01E23;color:#fff}.b3{background:#000;color:#fff;outline:2px solid #B01E23}
+[data-theme=dark] .b3{background:#fff;color:#000}
 svg{width:100%;height:180px}
-.funnel{display:flex;gap:6px;flex-wrap:wrap}.stage{flex:1;min-width:150px;padding:14px;color:#fff;clip-path:polygon(0 0,92% 0,100% 50%,92% 100%,0 100%,8% 50%)}
-.stage b{display:block;font:700 18px DynaPuff}.stage span{font:12px 'IBM Plex Mono'}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.card{border:1px solid var(--line);border-radius:6px;padding:14px;background:var(--soft)}
+.card p{margin:6px 0}.card .ev{font-size:13px;color:var(--mut)}
+.conf{font:13px Staatliches,sans-serif;letter-spacing:.05em}
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.layer{padding:14px;border-radius:6px;background:var(--blk);color:#fff}.layer:nth-child(2){background:var(--red)}.layer:nth-child(3){background:var(--card);color:var(--tx);border:2px solid var(--red)}
+.layer b{font:20px Staatliches,sans-serif;letter-spacing:.04em;display:block}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media(max-width:800px){.two{grid-template-columns:1fr}}
-footer{text-align:center;color:var(--mut);font:12px 'IBM Plex Mono',monospace;padding:20px}
+.caveat{background:var(--red);color:#fff;padding:8px 12px;border-radius:4px;font-size:14px;margin-bottom:12px}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:20px}
 </style></head><body>
-<div class="banner">● Traffic and content are live · Sales and funnel are placeholder examples</div>
-<header><div><h1>walkity talk<small>tracking studio145.ca/walkitytalk · pree more. talk less.</small></h1></div><button id="tt">◐ dark mode</button></header>
+<header><div class="brand"><img src="assets/logo-eyes.png" alt="Walkity Talk eyes logo"><h1>Walkity Talk<small>studio145.ca/walkitytalk tracking · Pree more. Talk less.</small></h1></div><button id="tt">Dark mode</button></header>
 <main>
-<section><h2>e · funnel <span class="ex">EXAMPLE</span></h2><div class="sub">Resonance → Sustain → Harmonic → Crescendo → Resolution (Studio 145 funnel SOP)</div><div class="funnel" id="funnel"></div></section>
-<section><h2>a · page traffic</h2><div class="sub">daily sessions (blue) &amp; unique visitors (yellow), Aug 3 – Oct 31, 2026 · Source: Wix Analytics, through Oct 31</div><div class="kpis" id="tk"></div><svg id="tchart" viewBox="0 0 1000 180" preserveAspectRatio="none"></svg></section>
+<section id="headline"><h2>1 · Page traffic</h2><div class="sub" id="hsub"></div><div class="kpis" id="tk"></div><svg id="tchart" viewBox="0 0 1000 180" preserveAspectRatio="none"></svg><div class="sub">Daily sessions (red) and unique visitors (grey) · Source: Wix Analytics</div></section>
+
+<section id="layers"><h2>2 · Funnel layers</h2><div class="sub">How each piece of the Walkity Talk funnel is tracked</div><div class="layers">
+<div class="layer"><b>Awareness</b>Node pages that tag Walkity Talk or its products, tracked with the same views, saves, shares, comments and Resonance Rate as the main dashboard. Planned feed: the Studio 145 content tracker (not connected yet). On this page: sessions arriving from social (Instagram, TikTok, Facebook, Linktree).</div>
+<div class="layer"><b>Consideration</b>@thatwalkitytalkstudio reels and the studio145.ca/walkitytalk page: reel scores below, plus sessions that come back, stay on the page or click onward.</div>
+<div class="layer"><b>Conversion</b>Direct ads and their performance, plus sales. <span class="tag r">Awaiting sales/ads data</span></div>
+</div></section>
+
+<section id="geo"><h2>3 · Geography × funnel</h2><div class="sub">Sessions on /walkitytalk, Aug 3 – Oct 31, 2026, by country (GTA shown as one combined area). Awareness = arrived from social. Consideration = returning visitor, stayed (no bounce) or clicked to another page. Conversion has no data source yet.</div>
+<table id="gf"></table>
+<h3 style="margin-top:18px">Canada · share of sessions reaching consideration, by week</h3><div class="sub">Weeks start Monday (Toronto time). Small weekly counts: read the direction, not the decimals.</div><table id="cw"></table></section>
+
+<section id="notes"><h2>4 · Notes</h2><div class="sub">Observations drawn directly from the data above. Each one is a reading of real numbers, not a forecast.</div><div class="cards" id="nt"></div></section>
+
+<section id="trends"><h2>5 · Inferred trends</h2><div class="caveat">Small sample: 14 scored reels (Sep 23 – Oct 22) and 111 page sessions. Every card here is inferred, not measured.</div><div class="cards" id="tr"></div></section>
+
 <div class="two">
-<section><h2>b · traffic sources</h2><div class="sub">last 90 days · Source: Wix Analytics, through Oct 31</div><table id="src"></table><h2 style="margin-top:16px;font-size:16px">devices &amp; countries</h2><table id="dev"></table></section>
-<section><h2>d · sales <span class="ex">EXAMPLE</span></h2><div class="sub">tabs: Sales, Products</div><div class="kpis" id="sk"></div><table id="prod"></table></section>
+<section id="sources"><h2>6 · Traffic sources</h2><div class="sub">Last 90 days · Source: Wix Analytics</div><table id="src"></table><h3 style="margin-top:16px">Devices &amp; countries</h3><table id="dev"></table></section>
+<section id="conv"><h2>7 · Conversion</h2><div class="sub">Sales and ads</div><div class="kpis"><div class="kpi"><b>—</b><span>Orders · awaiting sales data</span></div><div class="kpi"><b>—</b><span>Ad performance · awaiting ads data</span></div></div><p class="sub">Nothing is shown here until a sales and ads source is connected. No numbers are estimated.</p></section>
 </div>
-<section><h2>c · content performance</h2><div class="sub">RR v2 = (Saves+Shares+Comments) ÷ Views × 1000 · Push only (Dim) &lt;5 · Solid (Steady) 5–15 · Strong (Bright) 15–30 · Outlier 30+ <br>14 @thatwalkitytalkstudio reels · Source: Cloudy reports, Sep 23 to Oct 22; scores paused since the Oct 24 IG login block</div><table id="content"></table></section>
+<section id="content"><h2>8 · Content performance</h2><div class="sub">RR v2 = (Saves + Shares + Comments) ÷ Views × 1,000 · Push only (Dim) &lt;5 · Solid (Steady) 5–15 · Strong (Bright) 15–30 · Outlier 30+<br>14 @thatwalkitytalkstudio reels, Sep 23 – Oct 22 · Source: Walkity Talk Instagram reports · No reels scored after Oct 22 yet</div><table id="ct"></table></section>
 </main>
-<footer>Traffic and content from embedded data/live.json (Sheet hook kept for later). No sign-in, no keys, no backend.</footer>
+<footer>Data: Wix Analytics (studio145.ca/walkitytalk) and Walkity Talk Instagram reports · Updated Nov 1, 2026 · Country-level only, no personal data.</footer>
 <script>
-const SHEET='SHEET'; // ← paste the Google Sheet ID here
-const $=id=>document.getElementById(id), fmt=n=>(+n||0).toLocaleString();
-const tt=$('tt');const setT=t=>{document.documentElement.dataset.theme=t;localStorage.wtTheme=t;tt.textContent=t=='dark'?'◑ light mode':'◐ dark mode'};
-setT(localStorage.wtTheme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));tt.onclick=()=>setT(document.documentElement.dataset.theme=='dark'?'light':'dark');
-function parseCSV(t){const r=[];let row=[],f='',q=0;for(let i=0;i<t.length;i++){const c=t[i];if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=0}else f+=c}else if(c=='"')q=1;else if(c==','){row.push(f);f=''}else if(c=='\n'){row.push(f);r.push(row);row=[];f=''}else if(c!='\r')f+=c}if(f||row.length){row.push(f);r.push(row)}
- const h=(r.shift()||[]).map(x=>x.trim().toLowerCase());return r.filter(x=>x.some(Boolean)).map(x=>Object.fromEntries(h.map((k,i)=>[k,x[i]])))}
-const tab=s=>SHEET==='SHEET'?Promise.reject('placeholder'):fetch(`https://docs.google.com/spreadsheets/d/${SHEET}/gviz/tq?tqx=out:csv&headers=1&sheet=${encodeURIComponent(s)}`).then(r=>{if(!r.ok)throw r.status;return r.text()}).then(parseCSV).then(d=>{if(!d.length)throw'empty';return d});
-// EXAMPLE data only, shown until the Sheet is connected. Not real numbers.
-const EX={
-traffic:Array.from({length:14},(_,i)=>({date:`EX-day ${i+1}`,visits:100+i*10+(i%3)*25,'unique visitors':70+i*7+(i%3)*15})),
-sources:['Instagram','TikTok','YouTube','X','Direct','Search','Email','Referral'].map((s,i)=>({source:s,'utm campaign':i<2?'example_campaign':'',sessions:(8-i)*10})),
-content:[['Instagram','Example reel A',1000,10,5,5],['TikTok','Example clip B',1000,4,2,1],['YouTube','Example short C',1000,12,6,4],['Instagram','Example reel D',1000,20,8,7]].map(([p,t,v,a,b,c])=>({platform:p,post:t,views:v,saves:a,shares:b,comments:c})),
-sales:[{orders:10,revenue:500,sessions:1000}],
-products:[{product:'Example tee',units:6,revenue:300},{product:'Example hoodie',units:3,revenue:150},{product:'Example cap',units:1,revenue:50}],
-funnel:['Resonance','Sustain','Harmonic','Crescendo','Resolution'].map((s,i)=>({stage:s,count:1000>>i*1.5|0,metric:['saves+shares+comments','return visits','follows / opt-ins','add to cart / checkout','orders'][i]}))};
-const LIVE=fetch('data/live.json').then(r=>r.json());
+const $=id=>document.getElementById(id), fmt=n=>(+n||0).toLocaleString(), pct=(a,b)=>b?Math.round(a/b*100)+'%':'—';
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const get=(s,k)=>tab(s).then(d=>[d,false]).catch(()=>(['traffic','sources','content'].includes(k)?LIVE.then(L=>[L[k],false]):[EX[k],true]));
-const exTag=e=>e?'<span class="ex">EXAMPLE</span>':'';
+const tt=$('tt');const setT=t=>{document.documentElement.dataset.theme=t;localStorage.wtTheme=t;tt.textContent=t=='dark'?'Light mode':'Dark mode'};
+setT(localStorage.wtTheme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));tt.onclick=()=>setT(document.documentElement.dataset.theme=='dark'?'light':'dark');
 const rr=p=>{const v=+p.views||0;return v?((+p.saves||0)+(+p.shares||0)+(+p.comments||0))/v*1000:0};
 const band=r=>r>=30?['Outlier','b3']:r>=15?['Strong (Bright)','b2']:r>=5?['Solid (Steady)','b1']:['Push only (Dim)','b0'];
-get('Traffic','traffic').then(([d,e])=>{const v=d.map(x=>+x.visits||0),u=d.map(x=>+(x.unique??x['unique visitors'])||0);
- $('tk').innerHTML=`<div class="kpi"><b>${fmt(v.reduce((a,b)=>a+b,0))}</b><span>sessions, 90 days${exTag(e)}</span></div><div class="kpi"><b>85</b><span>unique visitors, 90 days</span></div><div class="kpi"><b>90</b><span>sessions, last 30 days</span></div><div class="kpi"><b>24</b><span>sessions, last 7 days</span></div>`;
- $('tk').insertAdjacentHTML('beforeend','');
+const card=(h,o,e,c,lab)=>`<div class="card"><h3>${h}</h3><p>${o}</p><p class="ev"><b>Evidence:</b> ${e}</p>${c?`<p class="conf">Confidence: ${c}</p>`:''}<span class="tag${lab?' r':''}">${lab||'Observation'}</span></div>`;
+fetch('data/live.json').then(r=>r.json()).then(L=>{
+ const H=L.headline, d=L.traffic, v=d.map(x=>+x.visits||0), u=d.map(x=>+x.unique||0);
+ $('hsub').textContent=`${H['90d'].start_et} to ${H['90d'].end_et} · /walkitytalk`;
+ $('tk').innerHTML=[[H['90d'].sessions,'sessions, 90 days'],[H['90d'].unique_visitors,'unique visitors, 90 days'],[H['30d'].sessions,'sessions, last 30 days'],[H['7d'].sessions,'sessions, last 7 days']].map(([n,l])=>`<div class="kpi"><b>${fmt(n)}</b><span>${l}</span></div>`).join('');
  const m=Math.max(...v,1),pts=a=>a.map((y,i)=>`${i/(a.length-1||1)*1000},${170-y/m*160}`).join(' ');
- $('tchart').innerHTML=`<polyline points="${pts(v)}" fill="none" stroke="#4C85A8" stroke-width="4"/><polyline points="${pts(u)}" fill="none" stroke="#FCCA46" stroke-width="4"/>`});
-get('Sources','sources').then(([d,e])=>{d=d.filter(x=>!x.window||x.window=='90d');const m=Math.max(...d.map(x=>+x.sessions||0),1);
- $('src').innerHTML=`<tr><th>source${exTag(e)}</th><th>type</th><th>sessions</th><th></th></tr>`+d.map(x=>`<tr><td>${esc(x.source)}</td><td>${esc((x.category||x['utm campaign']||'—').replace('_',' '))}</td><td class="n">${fmt(x.sessions)}</td><td style="width:35%"><div class="bar" style="width:${(+x.sessions||0)/m*100}%"></div></td></tr>`).join('')});
-get('Content','content').then(([d,e])=>{d.sort((a,b)=>rr(b)-rr(a));
- $('content').innerHTML=`<tr><th>post${exTag(e)}</th><th>platform</th><th>views</th><th>saves</th><th>shares</th><th>comments</th><th>RR v2</th><th>band</th></tr>`+d.map(x=>{const r=rr(x),[b,c]=band(r);const t=x.url?`<a href="${esc(x.url)}" target="_blank">${esc(x.post)}</a>`:esc(x.post);return `<tr><td>${t}<div class="sub" style="margin:0">${esc(x.date||'')}</div></td><td>${esc(x.platform)}</td><td class="n">${fmt(x.views)}</td><td class="n">${fmt(x.saves)}</td><td class="n">${fmt(x.shares)}</td><td class="n">${fmt(x.comments)}</td><td class="n">${r.toFixed(1)}</td><td><span class="band ${c}">${b}</span></td></tr>`}).join('')});
-get('Sales','sales').then(([d,e])=>{const s=k=>d.reduce((a,x)=>a+(+x[k]||0),0),o=s('orders'),r=s('revenue'),ss=s('sessions');
- $('sk').innerHTML=`<div class="kpi"><b>${fmt(o)}</b><span>orders${exTag(e)}</span></div><div class="kpi"><b>$${fmt(r)}</b><span>revenue${exTag(e)}</span></div><div class="kpi"><b>${ss?(o/ss*100).toFixed(1):'0'}%</b><span>conversion rate</span></div>`});
-get('Products','products').then(([d,e])=>{$('prod').innerHTML=`<tr><th>top products${exTag(e)}</th><th>units</th><th>revenue</th></tr>`+d.sort((a,b)=>b.revenue-a.revenue).slice(0,5).map(x=>`<tr><td>${x.product}</td><td class="n">${fmt(x.units)}</td><td class="n">$${fmt(x.revenue)}</td></tr>`).join('')});
-get('Funnel','funnel').then(([d,e])=>{const cols=['#A4C3D6','#4C85A8','#233D4D','#172933','#FCCA46'];
- $('funnel').innerHTML=d.map((x,i)=>`<div class="stage" style="background:${cols[i%5]};color:${i==0||i==4?'#172933':'#fff'}"><b>${x.stage}</b><span>${fmt(x.count)} · ${x.metric||''}${e?' (example)':''}</span></div>`).join('')});
-LIVE.then(L=>{const row=(a,b)=>`<tr><td>${esc(a)}</td><td class="n">${fmt(b)}</td></tr>`;
- $('dev').innerHTML='<tr><th>device</th><th>sessions</th></tr>'+L.devices.map(x=>row(x.device,x.sessions)).join('')+'<tr><th>country</th><th>sessions</th></tr>'+L.geo.map(x=>row(x.country,x.sessions)).join('')});
+ $('tchart').innerHTML=`<polyline points="${pts(u)}" fill="none" stroke="#9a9a9a" stroke-width="3"/><polyline points="${pts(v)}" fill="none" stroke="#B01E23" stroke-width="4"/>`;
+ // geo x funnel
+ $('gf').innerHTML='<tr><th>Segment</th><th>Sessions</th><th>Awareness</th><th>Consideration</th><th>Conversion</th><th>Returning</th><th>Bio-link</th></tr>'+L.geo_funnel.map(g=>`<tr class="${g.sub?'sub':''}"><td>${g.segment=='All'?'<b>All</b>':esc(g.segment)}</td><td class="n">${g.sessions}</td><td class="n">${g.awareness} (${pct(g.awareness,g.sessions)})</td><td class="n">${g.consideration} (${pct(g.consideration,g.sessions)})</td><td><span class="tag r">awaiting sales/ads data</span></td><td class="n">${g.returning}</td><td class="n">${g.bio}</td></tr>`).join('');
+ const wm=Math.max(...L.ca_weekly.map(w=>w.sessions));
+ $('cw').innerHTML='<tr><th>Week of</th><th>Sessions</th><th>Reached consideration</th><th>Share</th><th></th></tr>'+L.ca_weekly.map(w=>`<tr><td>${w.week}</td><td class="n">${w.sessions}</td><td class="n">${w.consideration}</td><td class="n">${pct(w.consideration,w.sessions)}</td><td style="width:35%"><div class="bar" style="width:${w.sessions?w.consideration/w.sessions*100:0}%"></div></td></tr>`).join('');
+ // notes
+ const A=L.geo_funnel.find(g=>g.segment=='All'), CA=L.geo_funnel.find(g=>g.segment=='Canada'), G=L.geo_funnel.find(g=>g.segment.startsWith('GTA'));
+ const dw=L.dwell.values_s.slice().sort((a,b)=>a-b), med=dw.length?dw[Math.floor(dw.length/2)]:null, bio=L.bio_by_country;
+ $('nt').innerHTML=[
+ card('Returning vs new',`${A.returning} of ${A.sessions} sessions (${pct(A.returning,A.sessions)}) came from returning visitors; the rest were first visits.`,`${G.returning} of the ${A.returning} returning sessions were in the GTA; none came from outside it.`),
+ card('Bio-link clicks by country',`${A.bio} sessions arrived through the Instagram link in bio (utm_source=ig, link_in_bio).`,`Canada ${bio.Canada||0}, United States ${bio['United States']||0}, rest of world ${A.bio-(bio.Canada||0)-(bio['United States']||0)}. Jamaica: 0 (both Jamaica sessions came through Linktree).`),
+ card('Dwell and engagement',`Most visits are a single look: ${A.sessions-A.engaged} of ${A.sessions} sessions bounced. Wix records time on page only for the ${L.dwell.n} sessions that did not bounce.`,`Time on page for those ${L.dwell.n}: ${dw.join(', ')} seconds (median about ${med} s). ${A.onward} sessions clicked through to another studio145.ca page.`),
+ card('Oct 30 spike',`Oct 30 was the busiest day: ${L.oct30.sessions} sessions, almost all typed or saved links rather than social.`,`Direct ${L.oct30.sources.direct||0}, Instagram ${L.oct30.sources.Instagram||0}, Linktree ${L.oct30.sources.Linktree||0}; ${L.oct30.returning} were returning visitors; all from Canada.`),
+ card('Reel scores paused after Oct 22',`No reels have been scored since Oct 22, so the last two weeks of studio content are missing from the content table and trends.`,`Last scored set: 7 reels, Oct 13–22, average RR 12.5.`),
+ card('Not available from Wix',`Clicks from the page out to walkitytalk.com are not tracked by Wix (0 button clicks recorded on /walkitytalk). Scroll depth and time on page for bounced visits are also not exposed. Sales and ads: no source yet.`,`Wix Analytics traffic and button-click data, Aug 3 – Oct 31.`,'', 'Data gap')
+ ].join('');
+ // trends
+ const I='Inferred, not measured';
+ $('tr').innerHTML=[
+ card('Conversation drives the top score','The breakout reel won on comments and shares, not views alone.','“A man said the 🧢 on ss” (Oct 20): 95 comments and 89 shares on 7,611 views, RR 30.4, the only Outlier. The next best, “Newest edition to the active fathers club”, scored 17.6.','Medium',I),
+ card('Scores rose from September to October','Studio reels resonated more in mid-October than in late September.','Average RR 7.5 for 7 reels Sep 23–29 vs 12.5 for 7 reels Oct 13–22. Views per reel ranged 446–1,136 in September and 726–7,611 in October.','Medium',I),
+ card('Community and fatherhood themes land','Relatable, community-type moments lead; the fathers-club reel was the second-best score.','Fathers club 17.6 (Bright) on 2,723 views, 31 shares. One example only.','Low',I),
+ card('Patois alone does not lift scores','Captions in patois or slang did not outscore plain-English captions.','7 patois or slang captions (styll, gyaldem, broughtupcy, bubblin, Bevys, Holay) average RR 7.9 vs 12.1 for the other 7, an average pulled up by the single Outlier. Medians: 6.9 vs 7.4.','Low',I),
+ card('Comment tone cannot be read yet','The reports carry comment counts but no comment text, so tone shifts cannot be judged.','Comments per reel range from 0 to 95; no excerpts in the data.','—',I),
+ card('Reels beat carousels','Video carries the conversation; campaign carousels on @walkitytalk barely register.','21 campaign carousels Oct 20–29: 0–6 likes and 0 comments each. In the Sep–Dec 2025 store sample, video averaged 189.8 likes and 10.3 comments vs 31.2 and 0.4 for carousels, and video drew 41 of 54 comments.','High',I),
+ card('Store account reach is falling','Posting three carousels a day did not hold reach.','@walkitytalk: 1,709 accounts reached and 481 interactions (Oct 16–23) fell to 1,212 and 150 (Oct 24–30).','Medium',I),
+ card('A mobile, GTA audience','Visitors are mostly on phones in the Toronto area, an urban audience that matches the brand\'s target of established 25–35-year-olds by place, though age is not measured.',`${A.mobile} of ${A.sessions} sessions on mobile; ${G.sessions} of ${A.sessions} from the GTA; only ${L.geo_funnel.find(g=>g.segment=='Jamaica').sessions} from Jamaica, the brand's home market.`,'Medium (age: not measured)',I),
+ card('The bio link brings people once; direct brings them back','Instagram bio-link visits are mostly one-off; repeat visits come by direct link.','Instagram: 4 returning of 56 sessions. Direct: 15 returning of 38. Bio-link sessions reaching consideration are rare (8 of 66 social sessions overall).','Medium',I),
+ card('Early-week timing','Traffic and the best reels cluster at the start of the week.','Tue + Wed = 50 of 111 sessions; Sat + Sun = 10. Reels posted Mon/Tue averaged RR 14.9 (6 reels) vs 6.3 (8 reels) on other days.','Low',I),
+ card('Oct 30 was word of mouth, not a post','The busiest day came from direct visits by locals, several returning, rather than a social push.',`${L.oct30.sessions} sessions on Oct 30, ${L.oct30.sources.direct||0} direct, ${L.oct30.returning} returning, all Canada. No scored reel covers that date.`,'Low',I)
+ ].join('');
+ // sources
+ const s=L.sources.filter(x=>x.window=='90d'),sm=Math.max(...s.map(x=>x.sessions));
+ $('src').innerHTML='<tr><th>Source</th><th>Type</th><th>Sessions</th><th></th></tr>'+s.map(x=>`<tr><td>${esc(x.source)}</td><td>${esc(x.category.replace('_',' '))}</td><td class="n">${x.sessions}</td><td style="width:35%"><div class="bar" style="width:${x.sessions/sm*100}%"></div></td></tr>`).join('');
+ const row=(a,b)=>`<tr><td>${esc(a)}</td><td class="n">${fmt(b)}</td></tr>`;
+ $('dev').innerHTML='<tr><th>Device</th><th>Sessions</th></tr>'+L.devices.map(x=>row(x.device,x.sessions)).join('')+'<tr><th>Country</th><th>Sessions</th></tr>'+L.geo.map(x=>row(x.country,x.sessions)).join('');
+ const c=L.content.slice().sort((a,b)=>rr(b)-rr(a));
+ $('ct').innerHTML='<tr><th>Post</th><th>Views</th><th>Saves</th><th>Shares</th><th>Comments</th><th>RR v2</th><th>Band</th></tr>'+c.map(x=>{const r=rr(x),[b,k]=band(r);return `<tr><td>${esc(x.post)}<div class="sub" style="margin:0">${esc(x.date)} · ${esc(x.weekday)}</div></td><td class="n">${fmt(x.views)}</td><td class="n">${x.saves}</td><td class="n">${x.shares}</td><td class="n">${x.comments}</td><td class="n">${r.toFixed(1)}</td><td><span class="band ${k}">${b}</span></td></tr>`}).join('');
+});
 </script></body></html>
