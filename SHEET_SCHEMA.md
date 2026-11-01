@@ -21,10 +21,10 @@ Content is split into two separate accounts. Every Content row needs an `Account
 
 | Account id | Name | Handle | What it covers |
 |---|---|---|---|
-| `studio` | Walkity Talk Studio | @thatwalkitytalkstudio | Studio / talk-show reels |
-| `instagram` | Walkity Talk Instagram | @walkitytalk | Brand and store feed (campaign carousels, product posts) |
+| `studio` | Community page | @thatwalkitytalkstudio | Studio / talk-show reels |
+| `instagram` | Store page | @walkitytalk | Brand and store feed (campaign carousels, product posts) |
 
-In `data/live.json` this is the `accounts` list plus an `account` field on each `content` item. The page's All / Studio / Instagram filter, the per-account KPI cards, the Account column, and the Accounts sheet/table in the Excel and PDF exports all key off it. Rows without a value are not shown under either single-account filter. @walkitytalk has account-level totals only (from Instagram reports) until a per-post export is added; the page labels that gap.
+In `data/live.json` this is the `accounts` list plus an `account` field on each `content` item. The page's All / Community page / Store page filter, the per-account KPI cards, the Account column, and the Accounts sheet/table in the Excel and PDF exports all key off it. Rows without a value are not shown under either single-account filter. @walkitytalk has account-level totals only (from Instagram reports) until a per-post export is added; the page labels that gap.
 
 ## Ownership
 Temporary: hosted on the personal dexrayrobinson account because GitHub sign-ups were rate-limited on 2026-11-01. Transfer to a Studio 145 company account once one exists.

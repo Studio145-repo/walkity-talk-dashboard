@@ -1139,14 +1139,14 @@
  "accounts": [
   {
    "id": "studio",
-   "name": "Walkity Talk Studio",
+   "name": "Community page",
    "handle": "@thatwalkitytalkstudio",
    "role": "Studio / talk-show reels",
    "sample": false
   },
   {
    "id": "instagram",
-   "name": "Walkity Talk Instagram",
+   "name": "Store page",
    "handle": "@walkitytalk",
    "role": "Brand and store feed (campaign carousels, product posts)",
    "sample": false,
