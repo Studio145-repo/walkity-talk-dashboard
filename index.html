@@ -37,9 +37,10 @@ svg{width:100%;height:180px}
 .layer b{font:20px Staatliches,sans-serif;letter-spacing:.04em;display:block}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media(max-width:800px){.two{grid-template-columns:1fr}}
 .caveat{background:var(--red);color:#fff;padding:8px 12px;border-radius:4px;font-size:14px;margin-bottom:12px}
+.dl{display:flex;gap:8px;flex-wrap:wrap}button.alt{background:var(--wht);color:var(--blk);border:2px solid var(--red)}button.alt:hover{background:var(--red);color:var(--wht)}button:disabled{opacity:.5;cursor:wait}
 footer{text-align:center;color:var(--mut);font-size:13px;padding:20px}
 </style></head><body>
-<header><div class="brand"><img src="assets/logo-eyes.png" alt="Walkity Talk eyes logo"><h1>Walkity Talk<small>studio145.ca/walkitytalk tracking · Pree more. Talk less.</small></h1></div><button id="tt">Dark mode</button></header>
+<header><div class="brand"><img src="assets/logo-eyes.png" alt="Walkity Talk eyes logo"><h1>Walkity Talk<small>studio145.ca/walkitytalk tracking · Pree more. Talk less.</small></h1></div><div class="dl"><button id="xl" class="alt" title="Download all dashboard data as Excel">Download as Excel</button><button id="pd" class="alt" title="Download the dashboard as a PDF report">Download as PDF</button><button id="tt">Dark mode</button></div></header>
 <main>
 <section id="headline"><h2>1 · Page traffic</h2><div class="sub" id="hsub"></div><div class="kpis" id="tk"></div><svg id="tchart" viewBox="0 0 1000 180" preserveAspectRatio="none"></svg><div class="sub">Daily sessions (red) and unique visitors (grey) · Source: Wix Analytics</div></section>
 
@@ -74,6 +75,7 @@ const rr=p=>{const v=+p.views||0;return v?((+p.saves||0)+(+p.shares||0)+(+p.comm
 const band=r=>r>=30?['Outlier','b3']:r>=15?['Strong (Bright)','b2']:r>=5?['Solid (Steady)','b1']:['Push only (Dim)','b0'];
 const card=(h,o,e,c,lab)=>`<div class="card"><h3>${h}</h3><p>${o}</p><p class="ev"><b>Evidence:</b> ${e}</p>${c?`<p class="conf">Confidence: ${c}</p>`:''}<span class="tag${lab?' r':''}">${lab||'Observation'}</span></div>`;
 Promise.resolve(window.WT_DATA||fetch('data/live.json?v=2').then(r=>r.json())).then(L=>{
+ window.WT_L=L;
  const H=L.headline, d=L.traffic, v=d.map(x=>+x.visits||0), u=d.map(x=>+x.unique||0);
  $('hsub').textContent=`${H['90d'].start_et} to ${H['90d'].end_et} · /walkitytalk`;
  $('tk').innerHTML=[[H['90d'].sessions,'sessions, 90 days'],[H['90d'].unique_visitors,'unique visitors, 90 days'],[H['30d'].sessions,'sessions, last 30 days'],[H['7d'].sessions,'sessions, last 7 days']].map(([n,l])=>`<div class="kpi"><b>${fmt(n)}</b><span>${l}</span></div>`).join('');
@@ -117,4 +119,59 @@ Promise.resolve(window.WT_DATA||fetch('data/live.json?v=2').then(r=>r.json())).t
  const c=L.content.slice().sort((a,b)=>rr(b)-rr(a));
  $('ct').innerHTML='<tr><th>Post</th><th>Views</th><th>Saves</th><th>Shares</th><th>Comments</th><th>RR v2</th><th>Band</th></tr>'+c.map(x=>{const r=rr(x),[b,k]=band(r);return `<tr><td>${esc(x.post)}<div class="sub" style="margin:0">${esc(x.date)} · ${esc(x.weekday)}</div></td><td class="n">${fmt(x.views)}</td><td class="n">${x.saves}</td><td class="n">${x.shares}</td><td class="n">${x.comments}</td><td class="n">${r.toFixed(1)}</td><td><span class="band ${k}">${b}</span></td></tr>`}).join('');
 }).catch(e=>{document.querySelectorAll('.cards,#tk').forEach(x=>{if(!x.innerHTML.trim())x.innerHTML='<p class="sub">Data failed to load, please refresh.</p>'});console.error(e)});
+</script><script src="assets/xlsx.full.min.js"></script><script src="assets/jspdf.umd.min.js"></script><script src="assets/jspdf.plugin.autotable.min.js"></script>
+<script>
+/* Export: every dataset the dashboard renders, one section per sheet / PDF table */
+function wtSections(L){
+ const R=x=>Math.round(x*10)/10, cards=id=>[...document.querySelectorAll('#'+id+' .card')].map(c=>({Title:c.querySelector('h3').textContent,Reading:(c.querySelectorAll('p')[0]||{}).textContent||'',Evidence:((c.querySelector('.ev')||{}).textContent||'').replace(/^Evidence:\s*/,''),Confidence:((c.querySelector('.conf')||{}).textContent||'').replace(/^Confidence:\s*/,''),Label:(c.querySelector('.tag')||{}).textContent||''}));
+ const pc=(a,b)=>b?R(a/b*100):null;
+ return [
+ ['Summary',L.summary.map(x=>({Window:x.window,Start:x.start_et,End:x.end_et,Scope:x.scope,Sessions:x.sessions,'Page views':x.page_views,'Unique visitors':x.unique_visitors}))],
+ ['Daily traffic',L.traffic.map(x=>({Date:x.date,Sessions:+x.visits||0,'Unique visitors':+x.unique||0,'Page views':+x.pageviews||0}))],
+ ['Geo x funnel',L.geo_funnel.map(g=>({Segment:g.segment,Sessions:g.sessions,Awareness:g.awareness,Consideration:g.consideration,Conversion:'no data',Returning:g.returning,Engaged:g.engaged,Onward:g.onward,'Bio-link':g.bio,Mobile:g.mobile}))],
+ ['Canada weekly',L.ca_weekly.map(w=>({'Week of':w.week,Sessions:w.sessions,'Reached consideration':w.consideration,'Share %':pc(w.consideration,w.sessions),Awareness:w.awareness}))],
+ ['Notes',cards('nt')],
+ ['Inferred trends',cards('tr')],
+ ['Traffic sources',L.sources.map(x=>({Window:x.window,Source:x.source,Type:x.category.replace('_',' '),Sessions:x.sessions}))],
+ ['Devices',L.devices.map(x=>({Device:x.device,Sessions:x.sessions}))],
+ ['Countries',L.geo.map(x=>({Country:x.country,Sessions:x.sessions,'Bio-link sessions':(L.bio_by_country||{})[x.country]||0}))],
+ ['Day of week',['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=>({Day:d,Sessions:L.dow[d]||0}))],
+ ['Content performance',L.content.slice().sort((a,b)=>rr(b)-rr(a)).map(x=>({Date:x.date,Weekday:x.weekday,Platform:x.platform,Post:x.post,Views:x.views,Saves:x.saves,Shares:x.shares,Comments:x.comments,'RR v2':R(rr(x)),Band:band(rr(x))[0],Source:x.source}))],
+ ['Other metrics',[
+  {Metric:'Dwell: non-bounced sessions',Value:L.dwell.n},{Metric:'Dwell: time on page (s)',Value:L.dwell.values_s.join(', ')},
+  {Metric:'Oct 30 sessions',Value:L.oct30.sessions},{Metric:'Oct 30 returning',Value:L.oct30.returning},
+  ...Object.entries(L.oct30.sources).map(([k,v])=>({Metric:'Oct 30 source: '+k,Value:v})),
+  {Metric:'@walkitytalk reached '+L.store_ig.window_a,Value:L.store_ig.reached_a},{Metric:'@walkitytalk interactions '+L.store_ig.window_a,Value:L.store_ig.interactions_a},
+  {Metric:'@walkitytalk reached '+L.store_ig.window_b,Value:L.store_ig.reached_b},{Metric:'@walkitytalk interactions '+L.store_ig.window_b,Value:L.store_ig.interactions_b},
+  {Metric:'@walkitytalk views '+L.store_ig.window_b,Value:L.store_ig.views_b},{Metric:'Campaign carousels',Value:L.store_ig.carousels}]],
+ ['Conversion',[{Metric:'Orders',Value:'Awaiting sales data'},{Metric:'Ad performance',Value:'Awaiting ads data'}]],
+ ];
+}
+const wtName=ext=>{const d=new Date(),z=n=>String(n).padStart(2,'0');return `walkity-talk-dashboard-${d.getFullYear()}-${z(d.getMonth()+1)}-${z(d.getDate())}.${ext}`};
+function wtWorkbook(L){
+ const wb=XLSX.utils.book_new();
+ XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet([['Walkity Talk | Tracking Dashboard'],[L.note],['Exported',new Date().toLocaleString('en-CA',{timeZone:'America/Toronto'})+' (Toronto time)']]),'About');
+ wtSections(L).forEach(([n,rows])=>{const ws=XLSX.utils.json_to_sheet(rows.length?rows:[{Info:'No data'}]);const k=Object.keys(rows[0]||{Info:1});ws['!cols']=k.map(h=>({wch:Math.min(60,Math.max(h.length,...rows.map(r=>String(r[h]==null?'':r[h]).length))+2)}));XLSX.utils.book_append_sheet(wb,ws,n.slice(0,31))});
+ return wb;
+}
+function wtPdf(L){
+ const {jsPDF}=window.jspdf, doc=new jsPDF({orientation:'landscape',unit:'pt',format:'letter'}), W=doc.internal.pageSize.getWidth(), red=[176,30,35];
+ const clean=v=>String(v==null?'':v).replace(/[“”]/g,'"').replace(/[‘’]/g,"'").replace(/[–—]/g,'-').replace(/×/g,'x').replace(/·/g,'-').replace(/[^\x20-\xFF]/gu,'').trim();
+ doc.setFillColor(0,0,0);doc.rect(0,0,W,64,'F');doc.setFillColor(...red);doc.rect(0,64,W,5,'F');
+ doc.setTextColor(255);doc.setFont('helvetica','bold');doc.setFontSize(22);doc.text('WALKITY TALK | TRACKING DASHBOARD',36,36);
+ doc.setFont('helvetica','normal');doc.setFontSize(10);doc.text(clean('studio145.ca/walkitytalk - Pree more. Talk less. - Exported '+new Date().toLocaleDateString('en-CA',{timeZone:'America/Toronto'})),36,52);
+ doc.setTextColor(60);doc.setFontSize(9);doc.text(doc.splitTextToSize(clean(L.note),W-72),36,88);
+ let y=112;
+ wtSections(L).forEach(([n,rows])=>{
+  if(!rows.length)return; const k=Object.keys(rows[0]);
+  if(y>doc.internal.pageSize.getHeight()-90){doc.addPage();y=40}
+  doc.setTextColor(...red);doc.setFont('helvetica','bold');doc.setFontSize(14);doc.text(n.toUpperCase(),36,y);
+  doc.autoTable({startY:y+6,head:[k],body:rows.map(r=>k.map(h=>clean(r[h]))),margin:{left:36,right:36},styles:{fontSize:8,cellPadding:3,textColor:20,lineColor:[226,226,226],lineWidth:.5},headStyles:{fillColor:[0,0,0],textColor:255},alternateRowStyles:{fillColor:[246,233,233]},rowPageBreak:'avoid'});
+  y=doc.lastAutoTable.finalY+26;
+ });
+ const pn=doc.getNumberOfPages();for(let i=1;i<=pn;i++){doc.setPage(i);doc.setFontSize(8);doc.setTextColor(120);doc.text(`Data: Wix Analytics and Walkity Talk Instagram reports - Country-level only, no personal data - Page ${i} of ${pn}`,36,doc.internal.pageSize.getHeight()-18)}
+ return doc;
+}
+$('xl').onclick=()=>{if(!window.WT_L||!window.XLSX)return alert('Data still loading, try again.');XLSX.writeFile(wtWorkbook(WT_L),wtName('xlsx'))};
+$('pd').onclick=()=>{if(!window.WT_L||!window.jspdf)return alert('Data still loading, try again.');wtPdf(WT_L).save(wtName('pdf'))};
 </script></body></html>
