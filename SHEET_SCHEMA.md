@@ -15,3 +15,6 @@ Resonance Rate v2 = (Saves + Shares + Comments) ÷ Views × 1000.
 Bands: Push only (Dim) under 5 · Solid (Steady) 5–15 · Strong (Bright) 15–30 · Outlier 30+.
 
 While `SHEET` is the placeholder (or a tab is missing), the page shows clearly labeled EXAMPLE data.
+
+## Ownership
+Temporary: hosted on the personal dexrayrobinson account because GitHub sign-ups were rate-limited on 2026-11-01. Transfer to a Studio 145 company account once one exists.
