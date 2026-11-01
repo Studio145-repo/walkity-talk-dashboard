@@ -39,18 +39,18 @@ svg{width:100%;height:180px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media(max-width:800px){.two{grid-template-columns:1fr}}
 footer{text-align:center;color:var(--mut);font:12px 'IBM Plex Mono',monospace;padding:20px}
 </style></head><body>
-<div class="banner">⚠ Placeholder data: live sources coming soon</div>
+<div class="banner">● Traffic and content are live · Sales and funnel are placeholder examples</div>
 <header><div><h1>walkity talk<small>tracking studio145.ca/walkitytalk · pree more. talk less.</small></h1></div><button id="tt">◐ dark mode</button></header>
 <main>
-<section><h2>e · funnel</h2><div class="sub">Resonance → Sustain → Harmonic → Crescendo → Resolution (Studio 145 funnel SOP)</div><div class="funnel" id="funnel"></div></section>
-<section><h2>a · page traffic</h2><div class="sub">visits &amp; unique visitors over time · tab: Traffic</div><div class="kpis" id="tk"></div><svg id="tchart" viewBox="0 0 1000 180" preserveAspectRatio="none"></svg></section>
+<section><h2>e · funnel <span class="ex">EXAMPLE</span></h2><div class="sub">Resonance → Sustain → Harmonic → Crescendo → Resolution (Studio 145 funnel SOP)</div><div class="funnel" id="funnel"></div></section>
+<section><h2>a · page traffic</h2><div class="sub">daily sessions (blue) &amp; unique visitors (yellow), Aug 3 – Oct 31, 2026 · Source: Wix Analytics, through Oct 31</div><div class="kpis" id="tk"></div><svg id="tchart" viewBox="0 0 1000 180" preserveAspectRatio="none"></svg></section>
 <div class="two">
-<section><h2>b · traffic sources</h2><div class="sub">tab: Sources</div><table id="src"></table></section>
-<section><h2>d · sales</h2><div class="sub">tabs: Sales, Products</div><div class="kpis" id="sk"></div><table id="prod"></table></section>
+<section><h2>b · traffic sources</h2><div class="sub">last 90 days · Source: Wix Analytics, through Oct 31</div><table id="src"></table><h2 style="margin-top:16px;font-size:16px">devices &amp; countries</h2><table id="dev"></table></section>
+<section><h2>d · sales <span class="ex">EXAMPLE</span></h2><div class="sub">tabs: Sales, Products</div><div class="kpis" id="sk"></div><table id="prod"></table></section>
 </div>
-<section><h2>c · content performance</h2><div class="sub">RR v2 = (Saves+Shares+Comments) ÷ Views × 1000 · Push only (Dim) &lt;5 · Solid (Steady) 5–15 · Strong (Bright) 15–30 · Outlier 30+ · tab: Content</div><table id="content"></table></section>
+<section><h2>c · content performance</h2><div class="sub">RR v2 = (Saves+Shares+Comments) ÷ Views × 1000 · Push only (Dim) &lt;5 · Solid (Steady) 5–15 · Strong (Bright) 15–30 · Outlier 30+ <br>14 @thatwalkitytalkstudio reels · Source: Cloudy reports, Sep 23 to Oct 22; scores paused since the Oct 24 IG login block</div><table id="content"></table></section>
 </main>
-<footer>Reads a public Google Sheet via gviz CSV on every load. No sign-in, no keys, no backend.</footer>
+<footer>Traffic and content from embedded data/live.json (Sheet hook kept for later). No sign-in, no keys, no backend.</footer>
 <script>
 const SHEET='SHEET'; // ← paste the Google Sheet ID here
 const $=id=>document.getElementById(id), fmt=n=>(+n||0).toLocaleString();
@@ -67,21 +67,26 @@ content:[['Instagram','Example reel A',1000,10,5,5],['TikTok','Example clip B',1
 sales:[{orders:10,revenue:500,sessions:1000}],
 products:[{product:'Example tee',units:6,revenue:300},{product:'Example hoodie',units:3,revenue:150},{product:'Example cap',units:1,revenue:50}],
 funnel:['Resonance','Sustain','Harmonic','Crescendo','Resolution'].map((s,i)=>({stage:s,count:1000>>i*1.5|0,metric:['saves+shares+comments','return visits','follows / opt-ins','add to cart / checkout','orders'][i]}))};
-const get=(s,k)=>tab(s).then(d=>[d,false]).catch(()=>[EX[k],true]);
+const LIVE=fetch('data/live.json').then(r=>r.json());
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const get=(s,k)=>tab(s).then(d=>[d,false]).catch(()=>(['traffic','sources','content'].includes(k)?LIVE.then(L=>[L[k],false]):[EX[k],true]));
 const exTag=e=>e?'<span class="ex">EXAMPLE</span>':'';
 const rr=p=>{const v=+p.views||0;return v?((+p.saves||0)+(+p.shares||0)+(+p.comments||0))/v*1000:0};
 const band=r=>r>=30?['Outlier','b3']:r>=15?['Strong (Bright)','b2']:r>=5?['Solid (Steady)','b1']:['Push only (Dim)','b0'];
-get('Traffic','traffic').then(([d,e])=>{const v=d.map(x=>+x.visits||0),u=d.map(x=>+x['unique visitors']||0);
- $('tk').innerHTML=`<div class="kpi"><b>${fmt(v.reduce((a,b)=>a+b,0))}</b><span>visits${exTag(e)}</span></div><div class="kpi"><b>${fmt(u.reduce((a,b)=>a+b,0))}</b><span>unique visitors${exTag(e)}</span></div><div class="kpi"><b>${d.length}</b><span>days tracked</span></div>`;
+get('Traffic','traffic').then(([d,e])=>{const v=d.map(x=>+x.visits||0),u=d.map(x=>+(x.unique??x['unique visitors'])||0);
+ $('tk').innerHTML=`<div class="kpi"><b>${fmt(v.reduce((a,b)=>a+b,0))}</b><span>sessions, 90 days${exTag(e)}</span></div><div class="kpi"><b>85</b><span>unique visitors, 90 days</span></div><div class="kpi"><b>90</b><span>sessions, last 30 days</span></div><div class="kpi"><b>24</b><span>sessions, last 7 days</span></div>`;
+ $('tk').insertAdjacentHTML('beforeend','');
  const m=Math.max(...v,1),pts=a=>a.map((y,i)=>`${i/(a.length-1||1)*1000},${170-y/m*160}`).join(' ');
  $('tchart').innerHTML=`<polyline points="${pts(v)}" fill="none" stroke="#4C85A8" stroke-width="4"/><polyline points="${pts(u)}" fill="none" stroke="#FCCA46" stroke-width="4"/>`});
-get('Sources','sources').then(([d,e])=>{const m=Math.max(...d.map(x=>+x.sessions||0),1);
- $('src').innerHTML=`<tr><th>source${exTag(e)}</th><th>utm campaign</th><th>sessions</th><th></th></tr>`+d.map(x=>`<tr><td>${x.source}</td><td>${x['utm campaign']||'—'}</td><td class="n">${fmt(x.sessions)}</td><td style="width:35%"><div class="bar" style="width:${(+x.sessions||0)/m*100}%"></div></td></tr>`).join('')});
+get('Sources','sources').then(([d,e])=>{d=d.filter(x=>!x.window||x.window=='90d');const m=Math.max(...d.map(x=>+x.sessions||0),1);
+ $('src').innerHTML=`<tr><th>source${exTag(e)}</th><th>type</th><th>sessions</th><th></th></tr>`+d.map(x=>`<tr><td>${esc(x.source)}</td><td>${esc((x.category||x['utm campaign']||'—').replace('_',' '))}</td><td class="n">${fmt(x.sessions)}</td><td style="width:35%"><div class="bar" style="width:${(+x.sessions||0)/m*100}%"></div></td></tr>`).join('')});
 get('Content','content').then(([d,e])=>{d.sort((a,b)=>rr(b)-rr(a));
- $('content').innerHTML=`<tr><th>post${exTag(e)}</th><th>platform</th><th>views</th><th>saves</th><th>shares</th><th>comments</th><th>RR v2</th><th>band</th></tr>`+d.map(x=>{const r=rr(x),[b,c]=band(r);const t=x.url?`<a href="${x.url}" target="_blank">${x.post}</a>`:x.post;return `<tr><td>${t}</td><td>${x.platform}</td><td class="n">${fmt(x.views)}</td><td class="n">${fmt(x.saves)}</td><td class="n">${fmt(x.shares)}</td><td class="n">${fmt(x.comments)}</td><td class="n">${r.toFixed(1)}</td><td><span class="band ${c}">${b}</span></td></tr>`}).join('')});
+ $('content').innerHTML=`<tr><th>post${exTag(e)}</th><th>platform</th><th>views</th><th>saves</th><th>shares</th><th>comments</th><th>RR v2</th><th>band</th></tr>`+d.map(x=>{const r=rr(x),[b,c]=band(r);const t=x.url?`<a href="${esc(x.url)}" target="_blank">${esc(x.post)}</a>`:esc(x.post);return `<tr><td>${t}<div class="sub" style="margin:0">${esc(x.date||'')}</div></td><td>${esc(x.platform)}</td><td class="n">${fmt(x.views)}</td><td class="n">${fmt(x.saves)}</td><td class="n">${fmt(x.shares)}</td><td class="n">${fmt(x.comments)}</td><td class="n">${r.toFixed(1)}</td><td><span class="band ${c}">${b}</span></td></tr>`}).join('')});
 get('Sales','sales').then(([d,e])=>{const s=k=>d.reduce((a,x)=>a+(+x[k]||0),0),o=s('orders'),r=s('revenue'),ss=s('sessions');
  $('sk').innerHTML=`<div class="kpi"><b>${fmt(o)}</b><span>orders${exTag(e)}</span></div><div class="kpi"><b>$${fmt(r)}</b><span>revenue${exTag(e)}</span></div><div class="kpi"><b>${ss?(o/ss*100).toFixed(1):'0'}%</b><span>conversion rate</span></div>`});
 get('Products','products').then(([d,e])=>{$('prod').innerHTML=`<tr><th>top products${exTag(e)}</th><th>units</th><th>revenue</th></tr>`+d.sort((a,b)=>b.revenue-a.revenue).slice(0,5).map(x=>`<tr><td>${x.product}</td><td class="n">${fmt(x.units)}</td><td class="n">$${fmt(x.revenue)}</td></tr>`).join('')});
 get('Funnel','funnel').then(([d,e])=>{const cols=['#A4C3D6','#4C85A8','#233D4D','#172933','#FCCA46'];
  $('funnel').innerHTML=d.map((x,i)=>`<div class="stage" style="background:${cols[i%5]};color:${i==0||i==4?'#172933':'#fff'}"><b>${x.stage}</b><span>${fmt(x.count)} · ${x.metric||''}${e?' (example)':''}</span></div>`).join('')});
+LIVE.then(L=>{const row=(a,b)=>`<tr><td>${esc(a)}</td><td class="n">${fmt(b)}</td></tr>`;
+ $('dev').innerHTML='<tr><th>device</th><th>sessions</th></tr>'+L.devices.map(x=>row(x.device,x.sessions)).join('')+'<tr><th>country</th><th>sessions</th></tr>'+L.geo.map(x=>row(x.country,x.sessions)).join('')});
 </script></body></html>

@@ -1,0 +1,903 @@
+{
+ "note": "Embedded static data. Wix Analytics /walkitytalk through 2026-10-31; Cloudy reports Sep 23-Oct 22.",
+ "traffic": [
+  {
+   "date": "2026-08-03",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-04",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-05",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-06",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-07",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-08",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-09",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-10",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-11",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-12",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-13",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-14",
+   "visits": 1,
+   "unique": 1,
+   "pageviews": 1
+  },
+  {
+   "date": "2026-08-15",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-16",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-17",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-18",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-19",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-20",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-21",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-22",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-23",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-24",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-25",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-26",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-27",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-28",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-29",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-30",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-08-31",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-01",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-02",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-03",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-04",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-05",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-06",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-07",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-08",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-09",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-10",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-11",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-12",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-13",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-14",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-15",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-16",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-17",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-18",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-19",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-20",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-21",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-22",
+   "visits": 1,
+   "unique": 1,
+   "pageviews": 1
+  },
+  {
+   "date": "2026-09-23",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-24",
+   "visits": 1,
+   "unique": 1,
+   "pageviews": 1
+  },
+  {
+   "date": "2026-09-25",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-26",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-27",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-09-28",
+   "visits": 4,
+   "unique": 4,
+   "pageviews": 4
+  },
+  {
+   "date": "2026-09-29",
+   "visits": 4,
+   "unique": 4,
+   "pageviews": 4
+  },
+  {
+   "date": "2026-09-30",
+   "visits": 5,
+   "unique": 5,
+   "pageviews": 6
+  },
+  {
+   "date": "2026-10-01",
+   "visits": 5,
+   "unique": 4,
+   "pageviews": 5
+  },
+  {
+   "date": "2026-10-02",
+   "visits": 1,
+   "unique": 1,
+   "pageviews": 1
+  },
+  {
+   "date": "2026-10-03",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-10-04",
+   "visits": 5,
+   "unique": 4,
+   "pageviews": 5
+  },
+  {
+   "date": "2026-10-05",
+   "visits": 11,
+   "unique": 10,
+   "pageviews": 12
+  },
+  {
+   "date": "2026-10-06",
+   "visits": 7,
+   "unique": 6,
+   "pageviews": 7
+  },
+  {
+   "date": "2026-10-07",
+   "visits": 5,
+   "unique": 5,
+   "pageviews": 5
+  },
+  {
+   "date": "2026-10-08",
+   "visits": 3,
+   "unique": 3,
+   "pageviews": 3
+  },
+  {
+   "date": "2026-10-09",
+   "visits": 1,
+   "unique": 1,
+   "pageviews": 1
+  },
+  {
+   "date": "2026-10-10",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-10-11",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-10-12",
+   "visits": 6,
+   "unique": 6,
+   "pageviews": 6
+  },
+  {
+   "date": "2026-10-13",
+   "visits": 10,
+   "unique": 10,
+   "pageviews": 10
+  },
+  {
+   "date": "2026-10-14",
+   "visits": 7,
+   "unique": 7,
+   "pageviews": 7
+  },
+  {
+   "date": "2026-10-15",
+   "visits": 2,
+   "unique": 2,
+   "pageviews": 2
+  },
+  {
+   "date": "2026-10-16",
+   "visits": 1,
+   "unique": 1,
+   "pageviews": 1
+  },
+  {
+   "date": "2026-10-17",
+   "visits": 2,
+   "unique": 2,
+   "pageviews": 2
+  },
+  {
+   "date": "2026-10-18",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-10-19",
+   "visits": 1,
+   "unique": 1,
+   "pageviews": 1
+  },
+  {
+   "date": "2026-10-20",
+   "visits": 1,
+   "unique": 1,
+   "pageviews": 1
+  },
+  {
+   "date": "2026-10-21",
+   "visits": 1,
+   "unique": 1,
+   "pageviews": 1
+  },
+  {
+   "date": "2026-10-22",
+   "visits": 1,
+   "unique": 1,
+   "pageviews": 1
+  },
+  {
+   "date": "2026-10-23",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  },
+  {
+   "date": "2026-10-24",
+   "visits": 1,
+   "unique": 1,
+   "pageviews": 1
+  },
+  {
+   "date": "2026-10-25",
+   "visits": 1,
+   "unique": 1,
+   "pageviews": 1
+  },
+  {
+   "date": "2026-10-26",
+   "visits": 2,
+   "unique": 2,
+   "pageviews": 2
+  },
+  {
+   "date": "2026-10-27",
+   "visits": 3,
+   "unique": 3,
+   "pageviews": 3
+  },
+  {
+   "date": "2026-10-28",
+   "visits": 1,
+   "unique": 1,
+   "pageviews": 1
+  },
+  {
+   "date": "2026-10-29",
+   "visits": 2,
+   "unique": 2,
+   "pageviews": 2
+  },
+  {
+   "date": "2026-10-30",
+   "visits": 15,
+   "unique": 10,
+   "pageviews": 15
+  },
+  {
+   "date": "2026-10-31",
+   "visits": 0,
+   "unique": 0,
+   "pageviews": 0
+  }
+ ],
+ "summary": [
+  {
+   "window": "7d",
+   "start_et": "2026-10-25",
+   "end_et": "2026-10-31",
+   "scope": "/walkitytalk",
+   "sessions": 24,
+   "page_views": 24,
+   "unique_visitors": 17
+  },
+  {
+   "window": "7d",
+   "start_et": "2026-10-25",
+   "end_et": "2026-10-31",
+   "scope": "whole site",
+   "sessions": 121,
+   "page_views": 176,
+   "unique_visitors": 101
+  },
+  {
+   "window": "30d",
+   "start_et": "2026-10-02",
+   "end_et": "2026-10-31",
+   "scope": "/walkitytalk",
+   "sessions": 90,
+   "page_views": 91,
+   "unique_visitors": 72
+  },
+  {
+   "window": "30d",
+   "start_et": "2026-10-02",
+   "end_et": "2026-10-31",
+   "scope": "whole site",
+   "sessions": 1268,
+   "page_views": 1651,
+   "unique_visitors": 1040
+  },
+  {
+   "window": "90d",
+   "start_et": "2026-08-03",
+   "end_et": "2026-10-31",
+   "scope": "/walkitytalk",
+   "sessions": 111,
+   "page_views": 113,
+   "unique_visitors": 85
+  },
+  {
+   "window": "90d",
+   "start_et": "2026-08-03",
+   "end_et": "2026-10-31",
+   "scope": "whole site",
+   "sessions": 2392,
+   "page_views": 3722,
+   "unique_visitors": 1826
+  }
+ ],
+ "sources": [
+  {
+   "window": "7d",
+   "category": "direct",
+   "source": "direct",
+   "sessions": 15
+  },
+  {
+   "window": "7d",
+   "category": "social",
+   "source": "Instagram",
+   "sessions": 6
+  },
+  {
+   "window": "7d",
+   "category": "social",
+   "source": "Linktree",
+   "sessions": 3
+  },
+  {
+   "window": "30d",
+   "category": "social",
+   "source": "Instagram",
+   "sessions": 52
+  },
+  {
+   "window": "30d",
+   "category": "direct",
+   "source": "direct",
+   "sessions": 28
+  },
+  {
+   "window": "30d",
+   "category": "social",
+   "source": "Linktree",
+   "sessions": 5
+  },
+  {
+   "window": "30d",
+   "category": "social",
+   "source": "Facebook",
+   "sessions": 3
+  },
+  {
+   "window": "30d",
+   "category": "organic_search",
+   "source": "Google",
+   "sessions": 2
+  },
+  {
+   "window": "90d",
+   "category": "social",
+   "source": "Instagram",
+   "sessions": 56
+  },
+  {
+   "window": "90d",
+   "category": "direct",
+   "source": "direct",
+   "sessions": 38
+  },
+  {
+   "window": "90d",
+   "category": "organic_search",
+   "source": "Google",
+   "sessions": 5
+  },
+  {
+   "window": "90d",
+   "category": "social",
+   "source": "Linktree",
+   "sessions": 5
+  },
+  {
+   "window": "90d",
+   "category": "social",
+   "source": "Facebook",
+   "sessions": 3
+  },
+  {
+   "window": "90d",
+   "category": "social",
+   "source": "TikTok",
+   "sessions": 2
+  },
+  {
+   "window": "90d",
+   "category": "organic_search",
+   "source": "DuckDuckGo",
+   "sessions": 1
+  },
+  {
+   "window": "90d",
+   "category": "organic_search",
+   "source": "Yahoo",
+   "sessions": 1
+  }
+ ],
+ "devices": [
+  {
+   "device": "mobile",
+   "sessions": 92
+  },
+  {
+   "device": "desktop",
+   "sessions": 19
+  }
+ ],
+ "geo": [
+  {
+   "country": "Canada",
+   "sessions": 94
+  },
+  {
+   "country": "India",
+   "sessions": 5
+  },
+  {
+   "country": "United States",
+   "sessions": 5
+  },
+  {
+   "country": "Jamaica",
+   "sessions": 2
+  },
+  {
+   "country": "Netherlands",
+   "sessions": 1
+  },
+  {
+   "country": "Spain",
+   "sessions": 1
+  },
+  {
+   "country": "Switzerland",
+   "sessions": 1
+  },
+  {
+   "country": "United Kingdom",
+   "sessions": 1
+  },
+  {
+   "country": "Zambia",
+   "sessions": 1
+  }
+ ],
+ "content": [
+  {
+   "date": "2026-10-22",
+   "platform": "Instagram",
+   "post": "Should you be bubblin up on next man while in a relationship?",
+   "views": 726,
+   "saves": 1,
+   "shares": 2,
+   "comments": 1,
+   "rr": 5.5,
+   "source": "Cloudy report, Oct 23 ed."
+  },
+  {
+   "date": "2026-10-20",
+   "platform": "Instagram",
+   "post": "A man said the 🧢 on ss",
+   "views": 7611,
+   "saves": 47,
+   "shares": 89,
+   "comments": 95,
+   "rr": 30.4,
+   "source": "Cloudy report, Oct 23 ed."
+  },
+  {
+   "date": "2026-10-19",
+   "platform": "Instagram",
+   "post": "Newest edition to the active fathers club",
+   "views": 2723,
+   "saves": 7,
+   "shares": 31,
+   "comments": 10,
+   "rr": 17.6,
+   "source": "Cloudy report, Oct 23 ed."
+  },
+  {
+   "date": "2026-10-16",
+   "platform": "Instagram",
+   "post": "Bevys not for everybody",
+   "views": 2214,
+   "saves": 3,
+   "shares": 6,
+   "comments": 11,
+   "rr": 9.0,
+   "source": "Cloudy report, Oct 23 ed."
+  },
+  {
+   "date": "2026-10-14",
+   "platform": "Instagram",
+   "post": "Dancehall has bare versatility styll",
+   "views": 1160,
+   "saves": 1,
+   "shares": 7,
+   "comments": 0,
+   "rr": 6.9,
+   "source": "Cloudy report, Oct 23 ed."
+  },
+  {
+   "date": "2026-10-14",
+   "platform": "Instagram",
+   "post": "How come they dont have 🚗???",
+   "views": 2931,
+   "saves": 2,
+   "shares": 16,
+   "comments": 3,
+   "rr": 7.2,
+   "source": "Cloudy report, Oct 23 ed."
+  },
+  {
+   "date": "2026-10-13",
+   "platform": "Instagram",
+   "post": "Focus on the person styll",
+   "views": 3763,
+   "saves": 15,
+   "shares": 23,
+   "comments": 3,
+   "rr": 10.9,
+   "source": "Cloudy report, Oct 23 ed."
+  },
+  {
+   "date": "2026-09-29",
+   "platform": "Instagram",
+   "post": "Holay, thats crazy",
+   "views": 446,
+   "saves": 0,
+   "shares": 2,
+   "comments": 4,
+   "rr": 13.5,
+   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+  },
+  {
+   "date": "2026-09-28",
+   "platform": "Instagram",
+   "post": "You guys are too mature for me",
+   "views": 1136,
+   "saves": 1,
+   "shares": 10,
+   "comments": 0,
+   "rr": 9.7,
+   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+  },
+  {
+   "date": "2026-09-28",
+   "platform": "Instagram",
+   "post": "A PSA",
+   "views": 1100,
+   "saves": 1,
+   "shares": 4,
+   "comments": 3,
+   "rr": 7.3,
+   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+  },
+  {
+   "date": "2026-09-27",
+   "platform": "Instagram",
+   "post": "You know Im not ok",
+   "views": 948,
+   "saves": 4,
+   "shares": 3,
+   "comments": 0,
+   "rr": 7.4,
+   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+  },
+  {
+   "date": "2026-09-24",
+   "platform": "Instagram",
+   "post": "So the gyaldem have placeholders too",
+   "views": 1055,
+   "saves": 1,
+   "shares": 0,
+   "comments": 2,
+   "rr": 2.8,
+   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+  },
+  {
+   "date": "2026-09-24",
+   "platform": "Instagram",
+   "post": "Dawg .. no broughtupcy",
+   "views": 745,
+   "saves": 1,
+   "shares": 4,
+   "comments": 0,
+   "rr": 6.7,
+   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+  },
+  {
+   "date": "2026-09-23",
+   "platform": "Instagram",
+   "post": "so he needs to chill out ?",
+   "views": 1002,
+   "saves": 1,
+   "shares": 4,
+   "comments": 0,
+   "rr": 5.0,
+   "source": "Cloudy report, Oct 9 ed. (1 Oct snapshot)"
+  }
+ ]
+}
