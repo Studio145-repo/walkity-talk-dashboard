@@ -1,6 +1,7 @@
 /* ECharts charts. Uses data/live.json values only (strings like "1,386" parsed as-is, no maths on them). */
 (function(){
-if(!window.echarts)return;
+const done=()=>{const l=document.getElementById('wtl');if(l)l.classList.add('done')};
+if(!window.echarts){done();return;}
 const css=k=>getComputedStyle(document.documentElement).getPropertyValue(k).trim();
 const N=v=>typeof v==='number'?v:Number(String(v).replace(/,/g,''));
 const charts=[];
@@ -22,5 +23,6 @@ fetch('data/live.json?v=4').then(r=>r.json()).then(L=>{
   mk('wch','ec-ga4',Math.max(200,chs.length*30),()=>Object.assign(base(),{xAxis:Object.assign({type:'value'},ax()),yAxis:Object.assign({type:'category',inverse:true,data:chs},ax()),series:sites.map(s=>({name:s+' sessions',type:'bar',data:chs.map(c=>{const r=G.find(g=>g.site===s&&g.channel===c);return r?N(r.sessions):null})}))}));}
  window.addEventListener('resize',()=>charts.forEach(([c])=>c.resize()));
  new MutationObserver(()=>charts.forEach(([c,o])=>c.setOption(o()))).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
-}).catch(e=>console.error('charts',e));
+done();
+}).catch(e=>{done();console.error('charts',e)});
 })();

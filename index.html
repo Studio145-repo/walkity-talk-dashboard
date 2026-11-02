@@ -40,8 +40,31 @@ svg{width:100%;height:180px}
 .dl{display:flex;gap:8px;flex-wrap:wrap}button.alt{background:var(--wht);color:var(--blk);border:2px solid var(--red)}button.alt:hover{background:var(--red);color:var(--wht)}button:disabled{opacity:.5;cursor:wait}
 footer{text-align:center;color:var(--mut);font-size:13px;padding:20px}
 .acct{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}.acct button{background:var(--card);color:var(--tx);border:2px solid var(--red);padding:5px 14px}.acct button.on{background:var(--red);color:#fff}.kpi.ph{border-style:dashed}.kpi h4{margin:0 0 4px;font:16px Staatliches,sans-serif;letter-spacing:.05em}
-</style></head><body>
-<header><div class="brand"><img src="assets/logo-eyes.png" alt="Walkity Talk eyes logo"><h1>Walkity Talk<small>studio145.ca/walkitytalk tracking · Pree more. Talk less.</small></h1></div><div class="dl"><button id="xl" class="alt" title="Download all dashboard data as Excel">Download as Excel</button><button id="pd" class="alt" title="Download the dashboard as a PDF report">Download as PDF</button><button id="tt">Dark mode</button></div></header>
+</style><style>
+/* Uiverse.io pieces (MIT, https://github.com/uiverse-io/galaxy/blob/main/LICENSE), restyled to Walkity Talk brand.
+   Loader: mrhyddenn "tasty-crab-98" · KPI hover: ercnersoy "serious-skunk-43" ·
+   Buttons: catraco "funny-impala-9" · Theme switch: anonithrax "brown-dragon-59" */
+.wt-loader{position:fixed;top:0;left:0;right:0;height:3px;background:var(--line);z-index:99;transition:opacity .4s}
+.wt-loader>i{display:block;height:3px;background:var(--red);animation:wtload 2s ease infinite}
+.wt-loader.done{opacity:0;pointer-events:none}
+@keyframes wtload{0%{width:0}10%{width:10%}50%{width:40%}60%{width:60%}100%{width:100%}}
+.kpi{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.kpi:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 8px 18px -10px rgba(0,0,0,.35)}
+.dl button{position:relative;overflow:hidden;border-bottom-width:4px;transition:border-width .2s,filter .3s,background .3s,color .3s}
+.dl button::after{content:"";position:absolute;left:0;top:-150%;width:100%;height:5px;background:rgba(255,255,255,.45);box-shadow:0 0 10px 6px rgba(255,255,255,.2);transition:top .5s}
+.dl button:hover::after{top:150%}
+.dl button:active{border-bottom-width:2px;transform:translateY(1px)}
+#tt{padding-left:46px}
+#tt::before{content:"";position:absolute;left:10px;top:50%;width:28px;height:14px;margin-top:-7px;background:rgba(255,255,255,.35);border-radius:2px;transition:background .3s}
+#tt::after{box-shadow:none;content:"";position:absolute;left:12px;top:50%;width:10px;height:10px;margin-top:-5px;background:#fff;border-radius:1px;transition:transform .3s}
+[data-theme=dark] #tt::after{transform:translateX(14px)}
+[data-theme=dark] #tt::before{background:rgba(0,0,0,.45)}
+main>*,.two>*{min-width:0}
+@media(max-width:800px){main{padding:12px}section{padding:14px;overflow-x:auto}.dl{flex-wrap:wrap;gap:8px}}
+@media (prefers-reduced-motion:reduce){.wt-loader>i{animation:none;width:60%}.kpi,.kpi:hover,.dl button::after{transition:none;transform:none}}
+</style>
+</head><body>
+<div class="wt-loader" id="wtl" role="progressbar" aria-label="Loading data"><i></i></div><header><div class="brand"><img src="assets/logo-eyes.png" alt="Walkity Talk eyes logo"><h1>Walkity Talk<small>studio145.ca/walkitytalk tracking · Pree more. Talk less.</small></h1></div><div class="dl"><button id="xl" class="alt" title="Download all dashboard data as Excel">Download as Excel</button><button id="pd" class="alt" title="Download the dashboard as a PDF report">Download as PDF</button><button id="tt">Dark mode</button></div></header>
 <main>
 <section id="headline"><h2>1 · Page traffic</h2><div class="sub" id="hsub"></div><div class="kpis" id="tk"></div><svg id="tchart" viewBox="0 0 1000 180" preserveAspectRatio="none"></svg><div class="sub">Daily sessions (red) and unique visitors (grey) · Source: Wix Analytics</div></section>
 
