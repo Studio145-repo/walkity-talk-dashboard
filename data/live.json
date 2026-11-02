@@ -1152,5 +1152,554 @@
    "sample": false,
    "per_post": "none yet"
   }
- ]
+ ],
+ "ga4": {
+  "source": "Walkity Talk Website Performance, Last 90 Days.pdf (Walker Malphrus, shared Nov 1, 2026)",
+  "period": "Aug 3 - Oct 31, 2026 (Google Analytics 4)",
+  "overview": [
+   {
+    "site": "Squarespace",
+    "property": "Walkity Talk (355162579)",
+    "users": "1,476 (1,468 active)",
+    "new_users": "1,453",
+    "sessions": "1,617",
+    "engaged_sessions": "250",
+    "engagement_rate": "15.46%",
+    "avg_engagement": "6s (5s per session)",
+    "views": "2,102",
+    "key_events": "0 (no key events configured)",
+    "event_count": "6,696",
+    "status": "Data available"
+   },
+   {
+    "site": "Shopify",
+    "property": "Walkity Talk (Shopify) (559885215)",
+    "users": "0",
+    "new_users": "0",
+    "sessions": "0",
+    "engaged_sessions": "0",
+    "engagement_rate": "n/a",
+    "avg_engagement": "0s",
+    "views": "0",
+    "key_events": "0",
+    "event_count": "n/a",
+    "status": "No data (tag not connected)"
+   },
+   {
+    "site": "Fygaro",
+    "property": "Walkity Talk (Fygaro) (521714299)",
+    "users": "47",
+    "new_users": "46",
+    "sessions": "131",
+    "engaged_sessions": "85",
+    "engagement_rate": "64.89%",
+    "avg_engagement": "2m 54s (1m 02s per session)",
+    "views": "583",
+    "key_events": "0 (no key events configured)",
+    "event_count": "1,450",
+    "status": "Data available"
+   }
+  ],
+  "channels": [
+   {
+    "site": "Squarespace",
+    "channel": "Direct",
+    "sessions": "1,386",
+    "share": "85.71%",
+    "engaged_sessions": "145",
+    "engagement_rate": "10.46%"
+   },
+   {
+    "site": "Squarespace",
+    "channel": "Referral",
+    "sessions": "75",
+    "share": "4.64%",
+    "engaged_sessions": "41",
+    "engagement_rate": "54.67%"
+   },
+   {
+    "site": "Squarespace",
+    "channel": "Organic Search",
+    "sessions": "52",
+    "share": "3.22%",
+    "engaged_sessions": "30",
+    "engagement_rate": "57.69%"
+   },
+   {
+    "site": "Squarespace",
+    "channel": "Organic Social",
+    "sessions": "47",
+    "share": "2.91%",
+    "engaged_sessions": "26",
+    "engagement_rate": "55.32%"
+   },
+   {
+    "site": "Squarespace",
+    "channel": "Paid Search",
+    "sessions": "44",
+    "share": "2.72%",
+    "engaged_sessions": "1",
+    "engagement_rate": "2.27%"
+   },
+   {
+    "site": "Squarespace",
+    "channel": "Unassigned",
+    "sessions": "12",
+    "share": "0.74%",
+    "engaged_sessions": "7",
+    "engagement_rate": "58.33%"
+   },
+   {
+    "site": "Squarespace",
+    "channel": "Organic Video",
+    "sessions": "1",
+    "share": "0.06%",
+    "engaged_sessions": "0",
+    "engagement_rate": "0%"
+   },
+   {
+    "site": "Fygaro",
+    "channel": "Direct",
+    "sessions": "60",
+    "share": "45.8%",
+    "engaged_sessions": "41",
+    "engagement_rate": "68.33%"
+   },
+   {
+    "site": "Fygaro",
+    "channel": "Organic Search",
+    "sessions": "41",
+    "share": "31.3%",
+    "engaged_sessions": "25",
+    "engagement_rate": "60.98%"
+   },
+   {
+    "site": "Fygaro",
+    "channel": "Referral",
+    "sessions": "24",
+    "share": "18.32%",
+    "engaged_sessions": "16",
+    "engagement_rate": "66.67%"
+   },
+   {
+    "site": "Fygaro",
+    "channel": "Organic Social",
+    "sessions": "6",
+    "share": "4.58%",
+    "engaged_sessions": "3",
+    "engagement_rate": "50%"
+   }
+  ],
+  "sources": [
+   {
+    "site": "Squarespace",
+    "source": "(direct) / (none)",
+    "sessions": "~1,400"
+   },
+   {
+    "site": "Squarespace",
+    "source": "linktr.ee / referral",
+    "sessions": "51"
+   },
+   {
+    "site": "Squarespace",
+    "source": "google / organic",
+    "sessions": "50"
+   },
+   {
+    "site": "Squarespace",
+    "source": "google / cpc",
+    "sessions": "44"
+   },
+   {
+    "site": "Squarespace",
+    "source": "facebook.com / referral",
+    "sessions": "27"
+   },
+   {
+    "site": "Squarespace",
+    "source": "l.instagram.com / referral",
+    "sessions": "9"
+   },
+   {
+    "site": "Squarespace",
+    "source": "google.com / referral",
+    "sessions": "8"
+   },
+   {
+    "site": "Fygaro",
+    "source": "(direct) / (none)",
+    "sessions": "60"
+   },
+   {
+    "site": "Fygaro",
+    "source": "google / organic",
+    "sessions": "41"
+   },
+   {
+    "site": "Fygaro",
+    "source": "fygaro.com / referral",
+    "sessions": "24"
+   },
+   {
+    "site": "Fygaro",
+    "source": "l.instagram.com / referral",
+    "sessions": "4"
+   },
+   {
+    "site": "Fygaro",
+    "source": "instagram.com / referral",
+    "sessions": "2"
+   }
+  ],
+  "pages": [
+   {
+    "site": "Squarespace",
+    "rank": 1,
+    "path": "/ (home)",
+    "views": "825",
+    "active_users": "464"
+   },
+   {
+    "site": "Squarespace",
+    "rank": 2,
+    "path": "/moments/da-drop",
+    "views": "228",
+    "active_users": "219"
+   },
+   {
+    "site": "Squarespace",
+    "rank": 3,
+    "path": "/opening",
+    "views": "126",
+    "active_users": "123"
+   },
+   {
+    "site": "Squarespace",
+    "rank": 4,
+    "path": "/moments/eyes-of-kingston-bts",
+    "views": "82",
+    "active_users": "79"
+   },
+   {
+    "site": "Squarespace",
+    "rank": 5,
+    "path": "/store-location",
+    "views": "62",
+    "active_users": "59"
+   },
+   {
+    "site": "Squarespace",
+    "rank": 6,
+    "path": "/blogs/look-book/lookbook",
+    "views": "60",
+    "active_users": "59"
+   },
+   {
+    "site": "Squarespace",
+    "rank": 7,
+    "path": "/moments/grand-opening-afterparty",
+    "views": "56",
+    "active_users": "55"
+   },
+   {
+    "site": "Squarespace",
+    "rank": 8,
+    "path": "/who-wi-be",
+    "views": "53",
+    "active_users": "53"
+   },
+   {
+    "site": "Squarespace",
+    "rank": 9,
+    "path": "/blogs/news/pull-it-iwaata",
+    "views": "42",
+    "active_users": "42"
+   },
+   {
+    "site": "Squarespace",
+    "rank": 10,
+    "path": "/about-us",
+    "views": "41",
+    "active_users": "29"
+   },
+   {
+    "site": "Fygaro",
+    "rank": 1,
+    "path": "/ (home)",
+    "views": "158",
+    "active_users": "35"
+   },
+   {
+    "site": "Fygaro",
+    "rank": 2,
+    "path": "/products/",
+    "views": "100",
+    "active_users": "26"
+   },
+   {
+    "site": "Fygaro",
+    "rank": 3,
+    "path": "/775cff94-7fff-413c-8383-6fea3ac9659f",
+    "views": "47",
+    "active_users": "1"
+   },
+   {
+    "site": "Fygaro",
+    "rank": 4,
+    "path": "/products/search/",
+    "views": "47",
+    "active_users": "8"
+   },
+   {
+    "site": "Fygaro",
+    "rank": 5,
+    "path": "/page/refined-ambition/",
+    "views": "45",
+    "active_users": "11"
+   },
+   {
+    "site": "Fygaro",
+    "rank": 6,
+    "path": "/products/0bde64d6-6cdc-4e8d-b309-41334df345e7/",
+    "views": "19",
+    "active_users": "6"
+   },
+   {
+    "site": "Fygaro",
+    "rank": 7,
+    "path": "/cart/",
+    "views": "17",
+    "active_users": "8"
+   },
+   {
+    "site": "Fygaro",
+    "rank": 8,
+    "path": "/page/home/",
+    "views": "16",
+    "active_users": "12"
+   },
+   {
+    "site": "Fygaro",
+    "rank": 9,
+    "path": "/products/4848d935-8959-473e-9626-2384d78efda1/",
+    "views": "15",
+    "active_users": "9"
+   },
+   {
+    "site": "Fygaro",
+    "rank": 10,
+    "path": "/products/19da0529-284c-4fb3-851e-2f5cb54f7294/",
+    "views": "12",
+    "active_users": "4"
+   }
+  ],
+  "countries": [
+   {
+    "site": "Squarespace",
+    "country": "Singapore",
+    "active_users": "569",
+    "engagement_rate": "0.35%"
+   },
+   {
+    "site": "Squarespace",
+    "country": "United States",
+    "active_users": "417",
+    "engagement_rate": "17.45%"
+   },
+   {
+    "site": "Squarespace",
+    "country": "Jamaica",
+    "active_users": "106",
+    "engagement_rate": "41.33%"
+   },
+   {
+    "site": "Squarespace",
+    "country": "China",
+    "active_users": "96",
+    "engagement_rate": "22.92%"
+   },
+   {
+    "site": "Squarespace",
+    "country": "Canada",
+    "active_users": "40",
+    "engagement_rate": "56.76%"
+   },
+   {
+    "site": "Squarespace",
+    "country": "Vietnam",
+    "active_users": "38",
+    "engagement_rate": "0%"
+   },
+   {
+    "site": "Squarespace",
+    "country": "(not set)",
+    "active_users": "32",
+    "engagement_rate": "0%"
+   },
+   {
+    "site": "Squarespace",
+    "country": "Brazil",
+    "active_users": "16",
+    "engagement_rate": "0%"
+   },
+   {
+    "site": "Squarespace",
+    "country": "Germany",
+    "active_users": "14",
+    "engagement_rate": "20%"
+   },
+   {
+    "site": "Squarespace",
+    "country": "Colombia",
+    "active_users": "11",
+    "engagement_rate": "0%"
+   },
+   {
+    "site": "Fygaro",
+    "country": "Jamaica",
+    "active_users": "19",
+    "engagement_rate": "64.1%"
+   },
+   {
+    "site": "Fygaro",
+    "country": "United States",
+    "active_users": "17",
+    "engagement_rate": "76%"
+   },
+   {
+    "site": "Fygaro",
+    "country": "Canada",
+    "active_users": "10",
+    "engagement_rate": "61.54%"
+   },
+   {
+    "site": "Fygaro",
+    "country": "Costa Rica",
+    "active_users": "1",
+    "engagement_rate": "100%"
+   },
+   {
+    "site": "Fygaro",
+    "country": "Germany",
+    "active_users": "1",
+    "engagement_rate": "100%"
+   },
+   {
+    "site": "Fygaro",
+    "country": "Peru",
+    "active_users": "1",
+    "engagement_rate": "0%"
+   }
+  ],
+  "cities": [
+   {
+    "site": "Squarespace",
+    "city": "Singapore",
+    "active_users": "564"
+   },
+   {
+    "site": "Squarespace",
+    "city": "(not set)",
+    "active_users": "231"
+   },
+   {
+    "site": "Squarespace",
+    "city": "Council Bluffs",
+    "active_users": "88"
+   },
+   {
+    "site": "Squarespace",
+    "city": "Kingston",
+    "active_users": "88"
+   },
+   {
+    "site": "Squarespace",
+    "city": "Washington",
+    "active_users": "23"
+   },
+   {
+    "site": "Squarespace",
+    "city": "Raleigh",
+    "active_users": "22"
+   },
+   {
+    "site": "Squarespace",
+    "city": "Ho Chi Minh City",
+    "active_users": "14"
+   },
+   {
+    "site": "Squarespace",
+    "city": "Toronto",
+    "active_users": "14"
+   },
+   {
+    "site": "Squarespace",
+    "city": "Ashburn",
+    "active_users": "11"
+   },
+   {
+    "site": "Squarespace",
+    "city": "New York",
+    "active_users": "9"
+   },
+   {
+    "site": "Fygaro",
+    "city": "Kingston",
+    "active_users": "17"
+   },
+   {
+    "site": "Fygaro",
+    "city": "Toronto",
+    "active_users": "7"
+   },
+   {
+    "site": "Fygaro",
+    "city": "(not set)",
+    "active_users": "4"
+   },
+   {
+    "site": "Fygaro",
+    "city": "Raleigh",
+    "active_users": "4"
+   },
+   {
+    "site": "Fygaro",
+    "city": "Miami",
+    "active_users": "3"
+   },
+   {
+    "site": "Fygaro",
+    "city": "Portmore",
+    "active_users": "3"
+   },
+   {
+    "site": "Fygaro",
+    "city": "Boardman",
+    "active_users": "2"
+   },
+   {
+    "site": "Fygaro",
+    "city": "Buffalo",
+    "active_users": "2"
+   },
+   {
+    "site": "Fygaro",
+    "city": "Gore Bay",
+    "active_users": "2"
+   },
+   {
+    "site": "Fygaro",
+    "city": "Orangeville",
+    "active_users": "2"
+   }
+  ],
+  "notes": [
+   "Key events (conversions) are not configured on any of the three properties, so conversion counts are 0 across the board.",
+   "The Shopify property has recorded no traffic in the last 90 days or in the last 12 months; the GA4 tag was never connected to the Shopify store.",
+   "Squarespace: roughly 45% of users come from Singapore, Council Bluffs (Iowa) and Ashburn (Virginia) with near-zero engagement, the typical signature of bot or data-center traffic. Real engagement is concentrated in Jamaica, the United States and Canada.",
+   "Fygaro page 3 (the UUID path) is a single user with 47 views and 13m 47s on page, likely an admin or test session.",
+   "A fourth property, \"Walkity Talk Ja\", also contains no data for this period."
+  ]
+ }
 }
