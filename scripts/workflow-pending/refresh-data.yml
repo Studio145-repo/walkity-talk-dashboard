@@ -1,0 +1,33 @@
+# Manual-only until secrets exist. To enable daily runs: add repo secret GCP_SA_JSON
+# (read-only Google service account, Dex-approved) + repo variable SHEET_ID, then uncomment schedule.
+name: Refresh dashboard data
+on:
+  # schedule: [{cron: "17 11 * * *"}]   # daily ~6:17 AM ET (avoids :00/:30)
+  workflow_dispatch: {}
+permissions:
+  contents: write          # only to commit data/sheet.json
+concurrency: {group: refresh-data, cancel-in-progress: false}
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with: {persist-credentials: true}
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with: {python-version: "3.12"}
+      - run: pip install google-auth==2.40.3 requests==2.32.5
+      - name: Check secrets
+        env: {GCP_SA_JSON: "${{ secrets.GCP_SA_JSON }}", SHEET_ID: "${{ vars.SHEET_ID }}"}
+        run: '[ -n "$GCP_SA_JSON" ] && [ -n "$SHEET_ID" ] || { echo "::error::GCP_SA_JSON / SHEET_ID not set yet"; exit 1; }'
+      - name: Pull Sheet values (copy only)
+        env:
+          GCP_SA_JSON: ${{ secrets.GCP_SA_JSON }}
+          SHEET_ID: ${{ vars.SHEET_ID }}
+        run: python scripts/refresh_from_sheet.py
+      - name: Commit if changed
+        run: |
+          git diff --quiet data/sheet.json && exit 0
+          git config user.name "dashboard-refresh-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/sheet.json && git commit -m "Data refresh $(date -u +%F)" && git push

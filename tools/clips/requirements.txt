@@ -1,0 +1,4 @@
+faster-whisper==1.2.1
+av>=11,<16   # av 16+ breaks faster-whisper 1.2.1 decode_audio
+scenedetect==0.7.2
+opencv-python-headless>=4.8
